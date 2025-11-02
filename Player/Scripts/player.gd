@@ -10,6 +10,8 @@ var direction : Vector2 = Vector2.ZERO
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
 
+signal DirectionChanged( new_direction : Vector2)
+
 
 func _ready():
 	state_machine.Initialize(self)
@@ -41,7 +43,10 @@ func SetDirection() -> bool:
 	if new_dir == cardinal_direction:
 		return false
 	
+	
+	
 	cardinal_direction = new_dir
+	DirectionChanged.emit( new_dir )
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 	return true
 	

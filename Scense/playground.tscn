@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://lx771mhk65ue"]
+[gd_scene load_steps=4 format=3 uid="uid://lx771mhk65ue"]
 
-[ext_resource type="PackedScene" uid="uid://dyxlh0dxk52aa" path="res://Object/player.tscn" id="1_qb7h6"]
-[ext_resource type="PackedScene" uid="uid://dyvyou2j0f7dt" path="res://Tile Maps/floor-01.tscn" id="2_sbvvf"]
+[ext_resource type="PackedScene" uid="uid://dyvyou2j0f7dt" path="res://Tile Maps/floor-01.tscn" id="1_661wa"]
+[ext_resource type="PackedScene" uid="uid://dyxlh0dxk52aa" path="res://Player/player.tscn" id="2_vyi3j"]
+[ext_resource type="PackedScene" uid="uid://64vk6qkyy61q" path="res://Props/Blockers/desk.tscn" id="3_0186l"]
 
 [node name="Playground" type="Node2D"]
+y_sort_enabled = true
 
-[node name="Floor-01" parent="." instance=ExtResource("2_sbvvf")]
+[node name="Floor-01" parent="." instance=ExtResource("1_661wa")]
 position = Vector2(66, 44)
 layer_0/name = "FloorLayer"
 layer_0/z_index = -1
@@ -16,5 +18,18 @@ layer_1/tile_data = PackedInt32Array(196613, 524289, 9, 262149, 524289, 10, 2621
 layer_2/name = "DecorationLayer"
 layer_2/tile_data = PackedInt32Array(-327665, 262145, 12, -327664, 327681, 12, -327663, 327681, 12, -327662, 327681, 12, -327661, 458753, 12, -327660, 196609, 12, -327659, 327681, 12, -327658, 327681, 12, -327657, 327681, 12, -327656, 327681, 12, -327655, 327681, 12, -327654, 393217, 12)
 
-[node name="Player" parent="." instance=ExtResource("1_qb7h6")]
+[node name="Player" parent="." instance=ExtResource("2_vyi3j")]
+position = Vector2(78, 50)
 collision_mask = 16
+
+[node name="Desk" parent="." instance=ExtResource("3_0186l")]
+position = Vector2(83, 92)
+
+[node name="Desk2" parent="." instance=ExtResource("3_0186l")]
+position = Vector2(179, 93)
+
+[node name="Desk3" parent="." instance=ExtResource("3_0186l")]
+position = Vector2(147, 93)
+
+[node name="Desk4" parent="." instance=ExtResource("3_0186l")]
+position = Vector2(116, 92)

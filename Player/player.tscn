@@ -1,16 +1,18 @@
-[gd_scene load_steps=70 format=3 uid="uid://dyxlh0dxk52aa"]
+[gd_scene load_steps=73 format=3 uid="uid://dyxlh0dxk52aa"]
 
 [ext_resource type="Texture2D" uid="uid://16xsda7rfokq" path="res://Resource/mystic_woods_free_2.2/sprites/characters/player.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://ga0434say31g" path="res://Script/player.gd" id="1_kwdud"]
-[ext_resource type="Script" uid="uid://dgx8or60rdf2w" path="res://Script/player_state_machine.gd" id="3_a1t8t"]
+[ext_resource type="Script" uid="uid://ga0434say31g" path="res://Player/Scripts/player.gd" id="1_kwdud"]
+[ext_resource type="Script" uid="uid://dgx8or60rdf2w" path="res://Player/Scripts/player_state_machine.gd" id="3_a1t8t"]
 [ext_resource type="Texture2D" uid="uid://c7c6pycgnvpjs" path="res://Resource/Shadow.png" id="3_r140x"]
-[ext_resource type="Script" uid="uid://g80f4abetkc7" path="res://Script/state_idle.gd" id="4_b5wsg"]
-[ext_resource type="Script" uid="uid://cgei3ac3acar0" path="res://Script/state_walk.gd" id="5_uowl7"]
-[ext_resource type="Script" uid="uid://bu2hkanbb7gm5" path="res://Script/state_attack.gd" id="6_cvn3c"]
+[ext_resource type="Script" uid="uid://g80f4abetkc7" path="res://Player/Scripts/state_idle.gd" id="4_b5wsg"]
+[ext_resource type="Script" uid="uid://cgei3ac3acar0" path="res://Player/Scripts/state_walk.gd" id="5_uowl7"]
+[ext_resource type="Script" uid="uid://bu2hkanbb7gm5" path="res://Player/Scripts/state_attack.gd" id="6_cvn3c"]
 [ext_resource type="AudioStream" uid="uid://dcm4vb0yv7kmp" path="res://Resource/mystic_woods_free_2.2/SwordSwoosh.wav" id="7_842ax"]
+[ext_resource type="PackedScene" uid="uid://gopcfynjy3tl" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="9_00tjw"]
+[ext_resource type="Script" uid="uid://cp6satht6niud" path="res://Player/Scripts/PlayerInteractionsHost.gd" id="9_x3vf3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(13, 6)
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3vf3"]
+radius = 4.609772
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgqd6"]
 atlas = ExtResource("1_4flbx")
@@ -698,18 +700,19 @@ _data = {
 &"walk_up": SubResource("Animation_a0p5q")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_00tjw"]
+radius = 7.0
+
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(66, 44)
 motion_mode = 1
 wall_min_slide_angle = 0.17453292
 script = ExtResource("1_kwdud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6.5, -1)
-shape = SubResource("RectangleShape2D_onrkg")
+shape = SubResource("CircleShape2D_x3vf3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(6, -17)
+position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_b26j0")
 animation = &"idle_down"
 
@@ -745,3 +748,15 @@ attack_sound = ExtResource("7_842ax")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
 max_polyphony = 4
+
+[node name="Interactions" type="Node2D" parent="."]
+script = ExtResource("9_x3vf3")
+
+[node name="HurtBox" parent="Interactions" instance=ExtResource("9_00tjw")]
+collision_mask = 256
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_00tjw")
+debug_color = Color(0.99903303, 0, 0.13843742, 0.41960785)
