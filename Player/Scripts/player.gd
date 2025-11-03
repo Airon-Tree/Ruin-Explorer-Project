@@ -16,7 +16,7 @@ signal DirectionChanged( new_direction : Vector2)
 func _ready():
 	state_machine.Initialize(self)
 	var hurtbox = $Interactions/HurtBox  # 根据你的实际路径调整
-	hurtbox.Damaged.connect(_on_damaged)aw
+	hurtbox.Damaged.connect(_on_damaged)
 	pass
 	
 func _process(delta):
@@ -74,10 +74,10 @@ var current_health: int = 100
 
 func _on_damaged(damage: int) -> void:
 	current_health -= damage
-	print("受到伤害！当前血量: ", current_health)
+	print("Take damage！Current health: ", current_health)
 	
 	if current_health <= 0:
 		die()
 
 func die():
-	print("玩家死亡！")
+	print("player died！")

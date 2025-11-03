@@ -631,6 +631,7 @@ tile_set = SubResource("TileSet_xn7v3")
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_vyi3j")]
 position = Vector2(-14, 72)
 collision_mask = 18
+max_health = null
 
 [node name="CollisionShape2D" parent="Player" index="0"]
 shape = SubResource("RectangleShape2D_0186l")
