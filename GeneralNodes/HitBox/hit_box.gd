@@ -1,7 +1,7 @@
 class_name HitBox
 extends Area2D
 
-@export var damage : int = 1
+@export var damage : int = 20
 @export var damage_interval : float = 0.5
 
 var overlapping_hurtboxes: Dictionary = {}

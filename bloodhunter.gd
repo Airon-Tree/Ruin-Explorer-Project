@@ -20,9 +20,11 @@ var spit_timer: float = 0.0
 var next_turn_time: float = 0.0
 var can_see_player_cached: bool = false
 var current_direction: Vector2 = Vector2.ZERO
+var last_direction: Vector2 = Vector2.ZERO  # 记录上一次的移动方向
 var last_position: Vector2
 var stuck_timer: float = 0.0
 var at_edge_timer: float = 0.0
+var just_hit_wall: bool = false  # 刚撞墙的标记
 
 func _ready():
 	var blood_nodes = get_tree().get_nodes_in_group("blood_layer")
@@ -48,25 +50,26 @@ func _ready():
 func _physics_process(delta):
 	update_grid_position()
 	
-	# 检查是否在血上
 	if not blood_layer.has_blood(current_grid_pos):
 		turn_back_to_blood()
 		stuck_timer = 0.0
 		return
 	
-	# 检测卡住 - 更灵敏的检测
+	# 检测卡住
 	var distance_moved = global_position.distance_to(last_position)
-	var expected_min_move = speed * delta * 0.3  # 期望移动距离的30%
+	var expected_min_move = speed * delta * 0.3
 	
 	if distance_moved < expected_min_move:
 		stuck_timer += delta
-		# 降低触发时间：从0.1秒改为0.05秒
 		if stuck_timer > 0.05:
-			#print("卡住了！换方向")
+			# 撞墙了！
+			just_hit_wall = true
+			last_direction = current_direction  # 记录撞墙前的方向
 			turn_random()
 			stuck_timer = 0.0
 	else:
 		stuck_timer = 0.0
+		just_hit_wall = false
 	
 	last_position = global_position
 	
@@ -80,7 +83,7 @@ func _physics_process(delta):
 	spit_timer += delta
 	if spit_timer >= spit_interval:
 		spit_timer = 0.0
-		spit_at_edge()
+		spit_blood()
 	
 	# AI行为
 	if can_see_player_cached:
@@ -183,27 +186,38 @@ func set_random_turn_time():
 
 func turn_random():
 	var directions = [Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN]
-	
-	# 尝试找一个没被完全堵住的方向
 	var available_dirs = []
+	
 	for dir in directions:
-		# 简单测试：这个方向是否能移动一点点
 		var test_pos = global_position + dir * 5
 		available_dirs.append(dir)
 	
 	if available_dirs.size() > 0:
 		current_direction = available_dirs[randi() % available_dirs.size()]
 	else:
-		# 全部方向都堵住，随机选一个
 		current_direction = directions[randi() % directions.size()]
 	
 	velocity = current_direction * speed
-	#print("转向: ", current_direction)
 
 func choose_random_direction():
 	var directions = [Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN]
 	current_direction = directions[randi() % directions.size()]
 	velocity = current_direction * speed
+
+func spit_blood():
+	if just_hit_wall and last_direction != Vector2.ZERO:
+		# 刚撞墙，朝撞墙前的方向喷血
+		var spit_grid = current_grid_pos + Vector2i(round(last_direction.x), round(last_direction.y))
+		
+		# 检查是否可以喷
+		if not blood_layer.has_blood(spit_grid) and is_grid_walkable(spit_grid):
+			blood_layer.add_blood(spit_grid)
+			print("撞墙后喷血到: ", spit_grid, " 方向: ", last_direction)
+		else:
+			print("撞墙方向有障碍物，无法喷血")
+	else:
+		# 没撞墙，正常喷血（边缘方向）
+		spit_at_edge()
 
 func spit_at_edge():
 	var directions = [
