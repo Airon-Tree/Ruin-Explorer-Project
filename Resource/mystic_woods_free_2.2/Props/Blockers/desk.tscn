@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://64vk6qkyy61q"]
+
+[ext_resource type="Script" uid="uid://bwbgtjxn7k87m" path="res://Resource/mystic_woods_free_2.2/Props/Blockers/desk.gd" id="1_pltva"]
+[ext_resource type="Texture2D" uid="uid://c1qurx28bxtmc" path="res://Resource/mystic_woods_free_2.2/Props/Sprites/props and items x1.png" id="2_u5xim"]
+[ext_resource type="PackedScene" uid="uid://b31jl28hxh0xn" path="res://GeneralNodes/HitBox/hit_box.tscn" id="3_3wa33"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33nli"]
+size = Vector2(20, 15)
+
+[node name="Desk" type="Node2D"]
+script = ExtResource("1_pltva")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_u5xim")
+hframes = 24
+vframes = 22
+frame = 50
+
+[node name="HitBox" parent="." instance=ExtResource("3_3wa33")]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_33nli")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 6.25)
+shape = SubResource("RectangleShape2D_33nli")

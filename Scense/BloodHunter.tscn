@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0uoo5l28sjxd"]
+
+[ext_resource type="Script" uid="uid://3wb44asl072a" path="res://bloodhunter.gd" id="1_1symp"]
+[ext_resource type="Texture2D" uid="uid://877pvlfec5pk" path="res://Resource/icon.svg" id="2_o4kpr"]
+[ext_resource type="Script" uid="uid://c8crntm32tfss" path="res://GeneralNodes/HitBox/hit_box.gd" id="3_disfk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkfob"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4kpr"]
+
+[node name="BloodHunter" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 17
+script = ExtResource("1_1symp")
+
+[node name="SpitTimer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_o4kpr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lkfob")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("3_disfk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_o4kpr")
