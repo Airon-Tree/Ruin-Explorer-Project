@@ -5,18 +5,19 @@ extends Area2D
 @export var open_texture: Texture2D
 
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var solid_shape: CollisionShape2D = $StaticBody2D/CollisionShape2D
 
 var is_open: bool = false
 
 func _ready() -> void:
-	# Start closed
-	if closed_texture:
-		sprite.texture = closed_texture
+	sprite.texture = closed_texture
+	solid_shape.disabled = false
 
 func open() -> void:
 	is_open = true
-	if open_texture:
-		sprite.texture = open_texture
+
+	sprite.texture = open_texture
+	solid_shape.set_deferred("disabled", true)
 
 func _on_body_entered(body: Node2D) -> void:
 	if not is_open:

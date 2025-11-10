@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nsx7ws28fi1q"
-path="res://.godot/imported/open_door.png-75a201c6513657a952e651467b07f8f3.ctex"
+uid="uid://dgsxces48i8ih"
+path="res://.godot/imported/DestroySmoke.png-4c509d84002ea89209f31fc8182dda06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Props/open_door.png"
-dest_files=["res://.godot/imported/open_door.png-75a201c6513657a952e651467b07f8f3.ctex"]
+source_file="res://Enemies/Slime/DestroySmoke.png"
+dest_files=["res://.godot/imported/DestroySmoke.png-4c509d84002ea89209f31fc8182dda06.ctex"]
 
 [params]
 

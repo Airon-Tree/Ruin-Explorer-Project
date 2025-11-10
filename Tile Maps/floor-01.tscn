@@ -365,4 +365,8 @@ sources/1 = SubResource("TileSetAtlasSource_81jo8")
 [node name="Floor-01" type="TileMap"]
 z_index = -1
 tile_set = SubResource("TileSet_xn7v3")
+rendering_quadrant_size = 32
 format = 2
+layer_0/name = "FloorLayer"
+layer_1/name = "WallLayer"
+layer_2/name = "DecorationLayer"
