@@ -2,8 +2,8 @@ class_name Desk
 extends Node2D
 
 func _ready():
-	$HitBox.Damaged.connect( TakeDamage )
+	$HitBox.damaged.connect( _take_damage )
 	pass
 	
-func TakeDamage( _damage : int ) -> void:
+func _take_damage( _damage : int ) -> void:
 	queue_free()

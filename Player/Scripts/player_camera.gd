@@ -4,13 +4,13 @@ extends Camera2D
 
 func _ready():
 	make_current()
-	LevelManager.TileMapBoundsChanged.connect( UpdateLimits )
-	UpdateLimits( LevelManager.current_tilemap_bounds )
+	LevelManager.TileMapBoundsChanged.connect( update_limits )
+	update_limits( LevelManager.current_tilemap_bounds )
 	
 	pass
 
 
-func UpdateLimits( bounds : Array[ Vector2 ]) -> void:
+func update_limits( bounds : Array[ Vector2 ]) -> void:
 	if bounds == []:
 		return
 	limit_left = int( bounds[0].x )

@@ -10,6 +10,7 @@ extends EnemyState
 
 
 var  _direction : Vector2
+var _damage_position : Vector2
 
 
 
@@ -21,7 +22,7 @@ func enter() -> void:
 	enemy.invulnerable == true
 	
 	#var idx := randi_range(0, enemy.DIR_4.size() - 1)
-	_direction = enemy.global_position.direction_to( enemy.player.global_position )
+	_direction = enemy.global_position.direction_to( _damage_position )
 	
 	enemy.set_direction( _direction )
 	enemy.velocity  = _direction * -knockback_speed
@@ -44,7 +45,8 @@ func process( _delta : float ) -> EnemyState:
 func physics( _delta : float ) -> EnemyState:
 	return null
 
-func _on_enemy_destoryed() -> void:
+func _on_enemy_destoryed( hurt_box : HurtBox) -> void:
+	_damage_position = hurt_box.global_position
 	state_machine.change_state( self )
 	
 func _on_animation_finished( _a : String ) -> void:
