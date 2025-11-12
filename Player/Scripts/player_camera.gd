@@ -3,8 +3,8 @@ extends Camera2D
 
 
 func _ready():
-	make_current()
-	LevelManager.TileMapBoundsChanged.connect( update_limits )
+	# make_current()
+	LevelManager.tilemap_bounds_changed.connect( update_limits )
 	update_limits( LevelManager.current_tilemap_bounds )
 	
 	pass
