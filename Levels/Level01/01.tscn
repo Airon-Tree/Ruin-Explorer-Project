@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://d11lo5058886m"]
+[gd_scene load_steps=8 format=4 uid="uid://d11lo5058886m"]
 
+[ext_resource type="Script" uid="uid://cq87faq0fh2r7" path="res://Levels/Scripts/level.gd" id="1_oubua"]
 [ext_resource type="PackedScene" uid="uid://nqnfphuogjqn" path="res://Tile Maps/FloorLayer.tscn" id="1_x4sun"]
 [ext_resource type="PackedScene" uid="uid://coec3pon27q1t" path="res://Tile Maps/WallLayer.tscn" id="2_v70y3"]
 [ext_resource type="PackedScene" uid="uid://cbdshc24sg01a" path="res://Tile Maps/DecorationLayer.tscn" id="3_tvfj0"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://64vk6qkyy61q" path="res://Props/Blockers/desk.tscn" id="6_1pfed"]
 
 [node name="01" type="Node2D"]
+script = ExtResource("1_oubua")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("4_v70y3")]
 position = Vector2(150, 85)

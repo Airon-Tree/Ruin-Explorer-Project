@@ -8,7 +8,7 @@ func _ready():
 	area_entered.connect( _area_entered )
 	pass
 
-func _process(delta):
+func _process(_delta):
 	pass
 	
 func _area_entered( a : Area2D) -> void:
