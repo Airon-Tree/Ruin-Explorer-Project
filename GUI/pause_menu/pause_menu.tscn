@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6r88dneiwc1j"]
+[gd_scene load_steps=9 format=3 uid="uid://b6r88dneiwc1j"]
 
 [ext_resource type="Script" uid="uid://bcy2equpg5r2d" path="res://GUI/pause_menu/pause_menu.gd" id="1_4w82k"]
 [ext_resource type="Texture2D" uid="uid://3cvlb5t14y8a" path="res://Items/sprites/items.png" id="2_yiq8o"]
 [ext_resource type="Script" uid="uid://qchj0peq8xmo" path="res://GUI/pause_menu/inventory/scripts/inventory_ui.gd" id="3_36pfd"]
 [ext_resource type="PackedScene" uid="uid://k0gwo5pnv6yu" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="3_rsqrg"]
 [ext_resource type="Resource" uid="uid://bd6qhoilukt5e" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="4_ewgu5"]
+[ext_resource type="AudioStream" uid="uid://cdo5fy3seofxo" path="res://Items/item_effects/hp-up.wav" id="6_sn1ji"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsqrg"]
 atlas = ExtResource("2_yiq8o")
@@ -109,7 +110,6 @@ offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 10
-text = "A health position for restore hp, testtestetsetsetset"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -138,3 +138,8 @@ text = "Save"
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 text = "Load"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("6_sn1ji")
+volume_db = -20.0
+max_polyphony = 4
