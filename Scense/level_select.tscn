@@ -15,10 +15,25 @@ script = ExtResource("1_2xdkp")
 layer = 5
 
 [node name="Level1Button" type="Button" parent="CanvasLayer"]
-offset_left = 13.0
-offset_top = 112.0
-offset_right = 56.0
-offset_bottom = 154.0
+z_index = 3
+offset_left = 28.0
+offset_top = 64.0
+offset_right = 126.0
+offset_bottom = 108.0
 text = "1"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = -1
+offset_right = 480.0
+offset_bottom = 269.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 30.0
+offset_top = 24.0
+offset_right = 132.0
+offset_bottom = 47.0
+text = "Choose Level"
 
 [connection signal="pressed" from="CanvasLayer/Level1Button" to="." method="_on_level_1_button_pressed"]
