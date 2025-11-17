@@ -11,6 +11,7 @@ size = Vector2(24, 27)
 size = Vector2(20, 15)
 
 [node name="Desk" type="Node2D"]
+z_index = 1
 script = ExtResource("1_pltva")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

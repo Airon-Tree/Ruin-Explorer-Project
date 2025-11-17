@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://d11lo5058886m"]
+[gd_scene load_steps=15 format=4 uid="uid://d11lo5058886m"]
 
 [ext_resource type="Script" uid="uid://cq87faq0fh2r7" path="res://Levels/Scripts/level.gd" id="1_oubua"]
 [ext_resource type="PackedScene" uid="uid://nqnfphuogjqn" path="res://Tile Maps/FloorLayer.tscn" id="1_x4sun"]
@@ -7,11 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://dh6cgav4mmfup" path="res://Levels/player_spawn.tscn" id="4_v70y3"]
 [ext_resource type="PackedScene" uid="uid://cliwg7de130kx" path="res://Levels/level_transition.tscn" id="5_tvfj0"]
 [ext_resource type="PackedScene" uid="uid://64vk6qkyy61q" path="res://Props/Blockers/desk.tscn" id="6_1pfed"]
+[ext_resource type="PackedScene" uid="uid://cwq7120gtl5g7" path="res://Tile Maps/PoisonLayer.tscn" id="6_mfyrf"]
 [ext_resource type="PackedScene" uid="uid://bjkhfx6p2g2y7" path="res://Items/item_pickup/item_pickup.tscn" id="8_28ub8"]
 [ext_resource type="Resource" uid="uid://br0ifn0j5lx1t" path="res://Items/gem.tres" id="9_jrf50"]
 [ext_resource type="Resource" uid="uid://rdgonwidibjm" path="res://Items/apple.tres" id="10_jrf50"]
 [ext_resource type="Resource" uid="uid://8g0tv20c2ddi" path="res://Items/stone.tres" id="10_mfyrf"]
 [ext_resource type="Resource" uid="uid://5upjgbsa1lfk" path="res://Items/position.tres" id="11_vp8ob"]
+[ext_resource type="PackedScene" uid="uid://br6blecmo5qul" path="res://Enemies/Poison hunter/poison_hunter.tscn" id="14_vp8ob"]
 
 [node name="01" type="Node2D"]
 script = ExtResource("1_oubua")
@@ -29,7 +31,11 @@ tile_map_data = PackedByteArray("AAD/////AQAiAAEAAAAAAP//AQAiAAEAAAABAP//AQAiAAE
 tile_map_data = PackedByteArray("AAACAP7/AQAFAAAAAAADAP7/AQAFAAAAAAAEAP7/AQAFAAAAAAAFAP7/AQAFAAAAAAAGAP7/AQAFAAAAAAAHAP7/AQAFAAAAAAAIAP7/AQAFAAAAAAAJAP7/AQAFAAAAAAAKAP7/AQAFAAAAAAALAP7/AQAFAAAAAAAMAP7/AQAFAAAAAAANAP7/AQAFAAAAAAAOAP7/AQAIAAAAAAAPAP//AQAJAAEAAAAOAP//AQAIAAEAAAAPAAAAAQAJAAIAAAAPAAEAAQAJAAIAAAAPAAQAAQAJAAIAAAAPAAUAAQAJAAIAAAAPAAYAAQAJAAIAAAAPAAcAAQAJAAIAAAAPAAgAAQAJAAIAAAAPAAkAAQAJAAIAAAAPAAoAAQAJAAIAAAAPAAsAAQAJAAIAAAABAP7/AQAFAAAAAAAAAP7/AQAFAAAAAAD///7/AQACAAAAAAD+////AQABAAEAAAD/////AQACAAEAAAD+/wAAAQABAAIAAAD+/wEAAQABAAIAAAD+/wIAAQABAAIAAAD+/wMAAQABAAIAAAD+/wQAAQABAAIAAAD+/wUAAQABAAIAAAD+/wYAAQABAAIAAAD+/wcAAQABAAIAAAD+/wgAAQABAAIAAAD+/wkAAQABAAIAAAD+/woAAQABAAIAAAD+/wsAAQABAAIAAAA=")
 
 [node name="DecorationLayer" parent="TileMap" instance=ExtResource("3_tvfj0")]
+z_index = 1
 tile_map_data = PackedByteArray("AAACAP7/AAAAAAQAAAADAP7/AAABAAQAAAAGAP7/AAAEAAQAAAAHAP7/AAAFAAQAAAAIAAIAAAADAAIAAAAKAAIAAAADAAIAAAAMAAIAAAADAAIAAAAIAAQAAAADAAIAAAAKAAQAAAADAAIAAAAMAAQAAAADAAIAAAAIAAcAAAAHAAIAAAAKAAcAAAAHAAIAAAAMAAcAAAAHAAIAAAAIAAkAAAAIAAIAAAAKAAkAAAAIAAIAAAAMAAkAAAAIAAIAAAAJAP7/AAAHAAAAAAALAP7/AAAHAAAAAAANAP7/AAAJAAAAAAALAAQAAAABAAAAAAALAAIAAAABAAAAAAAJAAQAAAAAAAAAAAALAAcAAAAAAAAAAAAJAAkAAAABAAAAAAAQAAMAAAABAA4AAFADAAsAAAAAAA4AAAAEAAsAAAABAA4AAAAQAAIAAAAAAA4AAFAAAAsAAAAAAA4AAAABAAsAAAABAA4AAAA=")
+
+[node name="PoisonLayer" parent="TileMap" instance=ExtResource("6_mfyrf")]
+tile_map_data = PackedByteArray("AAAGAAIAAAAjAAMAAAA=")
 
 [node name="LevelTransition" parent="." instance=ExtResource("5_tvfj0")]
 position = Vector2(128, 384)
@@ -76,3 +82,6 @@ item_data = ExtResource("10_mfyrf")
 [node name="ItemPickup3" parent="." instance=ExtResource("8_28ub8")]
 position = Vector2(121, 22)
 item_data = ExtResource("11_vp8ob")
+
+[node name="PoisonHunter" parent="." instance=ExtResource("14_vp8ob")]
+position = Vector2(209, 23)

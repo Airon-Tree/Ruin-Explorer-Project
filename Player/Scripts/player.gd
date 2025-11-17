@@ -19,6 +19,10 @@ var max_hp : int = 10
 @onready var state_machine = $StateMachine
 @onready var hit_box: HitBox = $HitBox
 
+@onready var poison_layer: PoisonLayer = (
+	get_tree().get_first_node_in_group("poison_layer") as PoisonLayer
+)
+@onready var poison_timer: Timer = $PoisonTickTimer
 
 
 
@@ -26,6 +30,7 @@ func _ready():
 	PlayerManager.player = self
 	state_machine.initialize(self)
 	hit_box.damaged.connect( _take_damage )
+	poison_timer.timeout.connect(_on_poison_tick)
 	update_hp(99)
 	pass
 	
@@ -41,6 +46,42 @@ func _process(_delta):
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
+	_check_poison(_delta)
+
+func _check_poison(delta: float) -> void:
+	if poison_layer == null:
+		return
+
+	var dps := poison_layer.get_dps_at_world_pos(global_position)
+
+	if dps > 0:
+		_enter_poison()
+	else:
+		_exit_poison()
+
+func _enter_poison() -> void:
+	# If timer is already running, do nothing
+	if poison_timer.is_stopped():
+		poison_timer.start()
+
+func _exit_poison() -> void:
+	# Stop the ticking when player leaves poison
+	if not poison_timer.is_stopped():
+		poison_timer.stop()
+
+func _on_poison_tick() -> void:
+	var dps := poison_layer.get_dps_at_world_pos(global_position)
+	_take_poison_damage(dps)
+
+func _take_poison_damage(amount: float) -> void:
+	# Convert float poison damage to int
+	var dmg: int = int(ceil(amount))
+	if dmg <= 0:
+		return
+
+	update_hp(-dmg)
+	effect_animation_player.play("damaged")
+
 
 func set_direction() -> bool:
 	var new_dir : Vector2 = cardinal_direction
