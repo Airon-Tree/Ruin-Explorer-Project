@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://d11lo5058886m"]
+[gd_scene load_steps=17 format=4 uid="uid://d11lo5058886m"]
 
 [ext_resource type="Script" uid="uid://cq87faq0fh2r7" path="res://Levels/Scripts/level.gd" id="1_oubua"]
 [ext_resource type="PackedScene" uid="uid://nqnfphuogjqn" path="res://Tile Maps/FloorLayer.tscn" id="1_x4sun"]
@@ -14,12 +14,14 @@
 [ext_resource type="Resource" uid="uid://8g0tv20c2ddi" path="res://Items/stone.tres" id="10_mfyrf"]
 [ext_resource type="Resource" uid="uid://5upjgbsa1lfk" path="res://Items/position.tres" id="11_vp8ob"]
 [ext_resource type="PackedScene" uid="uid://br6blecmo5qul" path="res://Enemies/Poison hunter/poison_hunter.tscn" id="14_vp8ob"]
+[ext_resource type="PackedScene" uid="uid://nmkrdqfjoj67" path="res://Props/Items/key_card.tscn" id="15_d1wb7"]
+[ext_resource type="PackedScene" uid="uid://4pcbu17frkvh" path="res://Props/Door/door.tscn" id="16_hgudt"]
 
 [node name="01" type="Node2D"]
 script = ExtResource("1_oubua")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("4_v70y3")]
-position = Vector2(150, 85)
+position = Vector2(15, 215)
 
 [node name="TileMap" type="Node" parent="."]
 
@@ -35,7 +37,7 @@ z_index = 1
 tile_map_data = PackedByteArray("AAACAP7/AAAAAAQAAAADAP7/AAABAAQAAAAGAP7/AAAEAAQAAAAHAP7/AAAFAAQAAAAIAAIAAAADAAIAAAAKAAIAAAADAAIAAAAMAAIAAAADAAIAAAAIAAQAAAADAAIAAAAKAAQAAAADAAIAAAAMAAQAAAADAAIAAAAIAAcAAAAHAAIAAAAKAAcAAAAHAAIAAAAMAAcAAAAHAAIAAAAIAAkAAAAIAAIAAAAKAAkAAAAIAAIAAAAMAAkAAAAIAAIAAAAJAP7/AAAHAAAAAAALAP7/AAAHAAAAAAANAP7/AAAJAAAAAAALAAQAAAABAAAAAAALAAIAAAABAAAAAAAJAAQAAAAAAAAAAAALAAcAAAAAAAAAAAAJAAkAAAABAAAAAAAQAAMAAAABAA4AAFADAAsAAAAAAA4AAAAEAAsAAAABAA4AAAAQAAIAAAAAAA4AAFAAAAsAAAAAAA4AAAABAAsAAAABAA4AAAA=")
 
 [node name="PoisonLayer" parent="TileMap" instance=ExtResource("6_mfyrf")]
-tile_map_data = PackedByteArray("AAAGAAIAAAAjAAMAAAA=")
+tile_map_data = PackedByteArray("AAAGAAIAAAAjAAMAAAAFAP//AAAjAAIAAAAGAP//AAAjAAIAAAAHAP//AAAjAAIAAAAFAAAAAAAjAAMAAAAFAAEAAAAjAAMAAAAFAAIAAAAjAAMAAAAHAAAAAAAjAAMAAAAHAAEAAAAjAAMAAAAHAAIAAAAjAAMAAAAGAAEAAAAjAAMAAAAGAAAAAAAjAAMAAAAEAP//AAAjAAIAAAAEAAAAAAAjAAMAAAAIAP//AAAjAAIAAAAIAAAAAAAjAAMAAAAEAAEAAAAjAAMAAAAIAAEAAAAjAAMAAAAEAAIAAAAjAAMAAAAIAAIAAAAjAAMAAAADAAAAAAAjAAMAAAADAAEAAAAjAAMAAAADAAIAAAAjAAMAAAAEAAMAAAAjAAMAAAAFAAMAAAAjAAMAAAAFAAQAAAAjAAMAAAAGAAQAAAAjAAMAAAAGAAMAAAAjAAMAAAAHAAMAAAAjAAMAAAAHAAQAAAAjAAMAAAAIAAMAAAAjAAMAAAAJAAEAAAAjAAMAAAALAAAAAAAkAAMAAAAKAAAAAAAjAAMAAAAJAAAAAAAjAAMAAAAJAP//AAAjAAIAAAAKAP//AAAjAAIAAAADAP//AAAjAAIAAAACAP//AAAiAAIAAAACAAAAAAAiAAMAAAALAP//AAAkAAIAAAAKAAEAAAAjAAMAAAAKAAIAAAAjAAMAAAAJAAIAAAAjAAMAAAAJAAMAAAAjAAMAAAAJAAQAAAAjAAMAAAAIAAQAAAAjAAMAAAAIAAUAAAAjAAMAAAAHAAUAAAAjAAMAAAAHAAYAAAAjAAMAAAA=")
 
 [node name="LevelTransition" parent="." instance=ExtResource("5_tvfj0")]
 position = Vector2(128, 384)
@@ -56,16 +58,16 @@ side = 3
 position = Vector2(80, 248)
 
 [node name="Desk2" parent="." instance=ExtResource("6_1pfed")]
-position = Vector2(49, 120)
+position = Vector2(81, 120)
 
 [node name="Desk3" parent="." instance=ExtResource("6_1pfed")]
-position = Vector2(49, 185)
+position = Vector2(49, 153)
 
 [node name="Desk4" parent="." instance=ExtResource("6_1pfed")]
-position = Vector2(114, 181)
+position = Vector2(82, 181)
 
 [node name="Desk5" parent="." instance=ExtResource("6_1pfed")]
-position = Vector2(113, 120)
+position = Vector2(113, 152)
 
 [node name="ItemPickup" parent="." instance=ExtResource("8_28ub8")]
 position = Vector2(81, 50)
@@ -84,4 +86,11 @@ position = Vector2(121, 22)
 item_data = ExtResource("11_vp8ob")
 
 [node name="PoisonHunter" parent="." instance=ExtResource("14_vp8ob")]
-position = Vector2(209, 23)
+position = Vector2(82, 154)
+
+[node name="KeyCard" parent="." instance=ExtResource("15_d1wb7")]
+z_index = 1
+position = Vector2(207, 31)
+
+[node name="Door" parent="." instance=ExtResource("16_hgudt")]
+position = Vector2(380, 368)

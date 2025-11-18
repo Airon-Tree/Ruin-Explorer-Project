@@ -10,8 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://dcm4vb0yv7kmp" path="res://Resource/mystic_woods_free_2.2/SwordSwoosh.wav" id="7_842ax"]
 [ext_resource type="PackedScene" uid="uid://gopcfynjy3tl" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="9_00tjw"]
 [ext_resource type="Script" uid="uid://cp6satht6niud" path="res://Player/Scripts/PlayerInteractionsHost.gd" id="9_x3vf3"]
-[ext_resource type="Script" path="res://Player/Scripts/player_camera.gd" id="10_apopc"]
-[ext_resource type="Script" path="res://Player/Scripts/state_stun.gd" id="10_gu6f8"]
+[ext_resource type="Script" uid="uid://ruo632bkc0vx" path="res://Player/Scripts/player_camera.gd" id="10_apopc"]
+[ext_resource type="Script" uid="uid://jorjntbdvai1" path="res://Player/Scripts/state_stun.gd" id="10_gu6f8"]
 [ext_resource type="PackedScene" uid="uid://b31jl28hxh0xn" path="res://GeneralNodes/HitBox/hit_box.tscn" id="12_5htga"]
 [ext_resource type="AudioStream" uid="uid://crxrqctkn7xj5" path="res://Player/Audio/hit_player.wav" id="14_dkpta"]
 
@@ -943,6 +943,7 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AttackHurtBox"]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_00tjw")
+disabled = true
 debug_color = Color(0.99903303, 0, 0.13843742, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
@@ -1002,3 +1003,4 @@ libraries = {
 }
 
 [node name="PoisonTickTimer" type="Timer" parent="."]
+wait_time = 0.3
