@@ -16,7 +16,7 @@ var player : Player
 var invulnerable : bool = false
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
-@onready var sprite : Sprite2D = $Sprite2D
+@onready var sprite : Node2D = $Sprite2D
 @onready var hit_box: HitBox = $HitBox
 @onready var state_machine : EnemyStateMachine = $EnemyStateMachine
 
