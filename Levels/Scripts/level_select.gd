@@ -5,9 +5,9 @@ extends Control
 
 func _on_level_1_button_pressed() -> void:
 	var level_path := level01_path
-	var spawn_name := "Spawn_From_Menu"
+	var spawn_name := "PlayerSpawn"
 	var offset     := Vector2.ZERO
 
-	LevelManager.target_transition = spawn_name
-	LevelManager.position_offset = offset
-	get_tree().change_scene_to_file(level_path)
+
+	LevelManager.load_new_level(level_path, spawn_name, offset)
+	

@@ -943,7 +943,6 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AttackHurtBox"]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_00tjw")
-disabled = true
 debug_color = Color(0.99903303, 0, 0.13843742, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
