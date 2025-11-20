@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://d11lo5058886m"]
+[gd_scene load_steps=18 format=4 uid="uid://d11lo5058886m"]
 
 [ext_resource type="Script" uid="uid://cq87faq0fh2r7" path="res://Levels/Scripts/level.gd" id="1_oubua"]
 [ext_resource type="PackedScene" uid="uid://nqnfphuogjqn" path="res://Tile Maps/FloorLayer.tscn" id="1_x4sun"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://br6blecmo5qul" path="res://Enemies/Poison hunter/poison_hunter.tscn" id="14_vp8ob"]
 [ext_resource type="PackedScene" uid="uid://nmkrdqfjoj67" path="res://Props/Items/key_card.tscn" id="15_d1wb7"]
 [ext_resource type="PackedScene" uid="uid://4pcbu17frkvh" path="res://Props/Door/door.tscn" id="16_hgudt"]
+[ext_resource type="PackedScene" uid="uid://brs71a6ruif1i" path="res://Items/blue_screen.tscn" id="17_0k87r"]
 
 [node name="01" type="Node2D"]
 script = ExtResource("1_oubua")
@@ -96,3 +97,15 @@ position = Vector2(207, 31)
 
 [node name="Door" parent="." instance=ExtResource("16_hgudt")]
 position = Vector2(380, 368)
+
+[node name="BlueScreen2" parent="." instance=ExtResource("17_0k87r")]
+position = Vector2(216, -17)
+screen_text = "Have a good day
+
+按E键关闭"
+
+[node name="BlueScreen" parent="." instance=ExtResource("17_0k87r")]
+position = Vector2(85, -18)
+screen_text = "Nice to meet u
+
+按E键关闭"
