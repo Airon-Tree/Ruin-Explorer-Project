@@ -109,3 +109,5 @@ position = Vector2(85, -18)
 screen_text = "Nice to meet u
 
 按E键关闭"
+
+[connection signal="picked_up" from="KeyCard" to="Door" method="_on_key_card_picked_up"]
