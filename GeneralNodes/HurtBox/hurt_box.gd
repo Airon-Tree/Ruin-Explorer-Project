@@ -13,5 +13,7 @@ func _process(_delta):
 	
 func _area_entered( a : Area2D) -> void:
 	if a is HitBox:
+		if a.get_parent() == get_parent():
+			return
 		a.take_damage( self )
 	pass

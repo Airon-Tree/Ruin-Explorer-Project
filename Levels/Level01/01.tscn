@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://d11lo5058886m"]
+[gd_scene load_steps=19 format=4 uid="uid://d11lo5058886m"]
 
 [ext_resource type="Script" uid="uid://cq87faq0fh2r7" path="res://Levels/Scripts/level.gd" id="1_oubua"]
 [ext_resource type="PackedScene" uid="uid://nqnfphuogjqn" path="res://Tile Maps/FloorLayer.tscn" id="1_x4sun"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://nmkrdqfjoj67" path="res://Props/Items/key_card.tscn" id="15_d1wb7"]
 [ext_resource type="PackedScene" uid="uid://4pcbu17frkvh" path="res://Props/Door/door.tscn" id="16_hgudt"]
 [ext_resource type="PackedScene" uid="uid://brs71a6ruif1i" path="res://Items/blue_screen.tscn" id="17_0k87r"]
+[ext_resource type="PackedScene" uid="uid://bux6lba35alf" path="res://Enemies/Ankang/mimic_enemy.tscn" id="18_awf3h"]
 
 [node name="01" type="Node2D"]
 script = ExtResource("1_oubua")
@@ -109,3 +110,14 @@ position = Vector2(85, -18)
 screen_text = "Nice to meet u
 
 按E键关闭"
+
+[node name="MimicEnemy" parent="." instance=ExtResource("18_awf3h")]
+z_index = 2
+position = Vector2(438, 191)
+detection_radius = 32.0
+windup_time = 1.0
+chomp_duration = 0.5
+cooldown_time = 3.0
+tilemap_layer_path = NodePath("../TileMap/FloorLayer")
+wall_layer_path = NodePath("../TileMap/WallLayer")
+poison_layer_path = NodePath("../TileMap/PoisonLayer")

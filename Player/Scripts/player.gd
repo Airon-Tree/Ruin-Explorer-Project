@@ -125,7 +125,7 @@ func _take_damage( hurt_box : HurtBox) -> void:
 		player_damaged.emit( hurt_box )
 	else:
 		player_damaged.emit( hurt_box )
-		update_hp(99)
+		update_hp(9)
 	pass
 	
 func update_hp( delta : int ) -> void:

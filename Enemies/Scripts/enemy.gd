@@ -18,10 +18,14 @@ var invulnerable : bool = false
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Node2D = $Sprite2D
 @onready var hit_box: HitBox = $HitBox
-@onready var state_machine : EnemyStateMachine = $EnemyStateMachine
+#@onready var state_machine : EnemyStateMachine = $EnemyStateMachine
+var state_machine : EnemyStateMachine
 
 func _ready():
-	state_machine.initialize(self)
+	state_machine = get_node_or_null("EnemyStateMachine")
+	if state_machine:
+		state_machine.initialize(self)
+		
 	player = PlayerManager.player
 	hit_box.damaged.connect( _take_damage )
 	pass
