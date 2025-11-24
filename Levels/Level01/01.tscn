@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://4pcbu17frkvh" path="res://Props/Door/door.tscn" id="16_hgudt"]
 [ext_resource type="PackedScene" uid="uid://brs71a6ruif1i" path="res://Items/blue_screen.tscn" id="17_0k87r"]
 [ext_resource type="PackedScene" uid="uid://bux6lba35alf" path="res://Enemies/Ankang/mimic_enemy.tscn" id="18_awf3h"]
-[ext_resource type="PackedScene" uid="uid://denlabf0x43ul" path="res://Props/Door/interact_door.tscn" id="19_8wt28"]
+[ext_resource type="PackedScene" path="res://Props/Door/interact_door.tscn" id="19_8wt28"]
 
 [node name="01" type="Node2D"]
 script = ExtResource("1_oubua")
@@ -125,3 +125,5 @@ cooldown_time = 3.0
 tilemap_layer_path = NodePath("../TileMap/FloorLayer")
 wall_layer_path = NodePath("../TileMap/WallLayer")
 poison_layer_path = NodePath("../TileMap/PoisonLayer")
+
+[connection signal="picked_up" from="KeyCard" to="Door" method="_on_key_card_picked_up"]
