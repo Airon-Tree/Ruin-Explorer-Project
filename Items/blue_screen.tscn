@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://brs71a6ruif1i"]
+[gd_scene load_steps=5 format=3 uid="uid://brs71a6ruif1i"]
 
 [ext_resource type="Script" uid="uid://da2xv58ykv1gv" path="res://blue_screen.gd" id="1_stvvj"]
+[ext_resource type="Texture2D" uid="uid://d1lpejed5ki3v" path="res://Props/Sprites/Ekey.png" id="2_wdecx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdecx"]
 size = Vector2(40, 20)
@@ -35,3 +36,10 @@ offset_bottom = 23.0
 text = "Nice to meet You!
 
 Press \"E\" to close"
+
+[node name="InteractHint" type="Sprite2D" parent="."]
+visible = false
+z_index = 8
+position = Vector2(7.9999995, -21.999998)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("2_wdecx")
