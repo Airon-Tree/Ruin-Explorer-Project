@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bux6lba35alf"]
+[gd_scene load_steps=25 format=3 uid="uid://bux6lba35alf"]
 
 [ext_resource type="Script" uid="uid://dh0s3okpdabeh" path="res://Enemies/Ankang/mimic_enemy.gd" id="1_kkmlh"]
 [ext_resource type="PackedScene" uid="uid://b31jl28hxh0xn" path="res://GeneralNodes/HitBox/hit_box.tscn" id="2_30tw3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c7c6pycgnvpjs" path="res://Resource/Shadow.png" id="3_h6t7c"]
 [ext_resource type="PackedScene" uid="uid://gopcfynjy3tl" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="3_j3etr"]
 [ext_resource type="Texture2D" uid="uid://bm5cved0c0ql8" path="res://Resource/Untitled (1).png" id="3_p0guv"]
+[ext_resource type="Texture2D" uid="uid://3cvlb5t14y8a" path="res://Items/sprites/items.png" id="4_wh5dd"]
 [ext_resource type="AudioStream" uid="uid://bohxw81fob20f" path="res://Enemies/Slime/hit_01.wav" id="7_44uuf"]
 [ext_resource type="AudioStream" uid="uid://byekm3ekuuk3f" path="res://Enemies/Slime/hit_00.wav" id="8_gpas6"]
 
@@ -17,6 +18,26 @@ margin = Rect2(15, 15, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8cmsa"]
 atlas = ExtResource("2_44uuf")
 region = Rect2(448.61856, 230.25, 31.302643, 31.815796)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsedr"]
+atlas = ExtResource("2_44uuf")
+region = Rect2(2.000122, 63.92717, 29.00003, 32.078537)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayh5q"]
+atlas = ExtResource("2_44uuf")
+region = Rect2(0.58374786, 329.00006, 32.65551, 47.58374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lte1b"]
+atlas = ExtResource("2_44uuf")
+region = Rect2(317.5998, 69.01055, 36.96115, 28.358139)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh5dd"]
+atlas = ExtResource("4_wh5dd")
+region = Rect2(224.38669, 0, 31.613312, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuqps"]
+atlas = ExtResource("4_wh5dd")
+region = Rect2(33.366047, 0, 28.740501, 32)
 
 [sub_resource type="Animation" id="Animation_y831t"]
 length = 0.001
@@ -111,9 +132,9 @@ radius = 11.045361
 [node name="MimicEnemy" type="CharacterBody2D"]
 position = Vector2(0, -1)
 script = ExtResource("1_kkmlh")
-disguise_sprites = Array[Texture2D]([SubResource("AtlasTexture_gpas6"), SubResource("AtlasTexture_8cmsa")])
+disguise_sprites = Array[Texture2D]([SubResource("AtlasTexture_gpas6"), SubResource("AtlasTexture_8cmsa"), SubResource("AtlasTexture_dsedr"), SubResource("AtlasTexture_ayh5q"), SubResource("AtlasTexture_lte1b"), SubResource("AtlasTexture_wh5dd"), SubResource("AtlasTexture_cuqps")])
 glow_color = Color(1, 1, 1, 1)
-chomp_damage = 5
+chomp_damage = 20
 hp = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

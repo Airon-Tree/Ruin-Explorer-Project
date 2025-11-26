@@ -1,20 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://nmkrdqfjoj67"]
+[gd_scene load_steps=5 format=3 uid="uid://nmkrdqfjoj67"]
 
 [ext_resource type="Script" uid="uid://bo3ku70kq3hx1" path="res://Props/Items/key_card.gd" id="1_n2jdt"]
-[ext_resource type="Texture2D" uid="uid://fclg8oatiuc" path="res://Resource/key_card.webp" id="2_4b1uh"]
+[ext_resource type="Texture2D" uid="uid://3cvlb5t14y8a" path="res://Items/sprites/items.png" id="2_n2jdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qmqv"]
-size = Vector2(44, 19)
+size = Vector2(18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b1uh"]
+atlas = ExtResource("2_n2jdt")
+region = Rect2(223.6857, 0, 32.3143, 32)
 
 [node name="KeyCard" type="Area2D"]
 script = ExtResource("1_n2jdt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0.5)
+position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_1qmqv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.19791667)
-texture = ExtResource("2_4b1uh")
+scale = Vector2(1, 0.792)
+texture = SubResource("AtlasTexture_4b1uh")
 
 [connection signal="body_entered" from="." to="." method="_on_KeyCard_body_entered"]
