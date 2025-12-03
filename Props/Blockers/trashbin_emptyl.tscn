@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://ng3v4ef6eshu"]
+
+[ext_resource type="Script" uid="uid://bwbgtjxn7k87m" path="res://Props/Blockers/desk.gd" id="1_xsadd"]
+[ext_resource type="Texture2D" uid="uid://c1qurx28bxtmc" path="res://Props/Sprites/props and items x1.png" id="2_8kfct"]
+[ext_resource type="PackedScene" uid="uid://b31jl28hxh0xn" path="res://GeneralNodes/HitBox/hit_box.tscn" id="3_ijj7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pltva"]
+size = Vector2(24, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33nli"]
+size = Vector2(20, 15)
+
+[node name="Desk" type="Node2D"]
+z_index = 1
+script = ExtResource("1_xsadd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_8kfct")
+hframes = 24
+vframes = 22
+
+[node name="HitBox" parent="." instance=ExtResource("3_ijj7m")]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_pltva")
+debug_color = Color(0.64982945, 0.52035034, 5.7756904e-07, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 6.25)
+shape = SubResource("RectangleShape2D_33nli")
