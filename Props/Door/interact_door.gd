@@ -21,7 +21,8 @@ func _process(_delta) -> void:
 	# 提示跟随玩家头顶
 	if current_player and interact_hint.visible:
 		interact_hint.global_position = current_player.global_position + hint_offset
-
+		interact_hint.global_rotation = 0
+		
 func _unhandled_input(event: InputEvent) -> void:
 	if player_in_range and event.is_action_pressed("interact"):
 		toggle()
