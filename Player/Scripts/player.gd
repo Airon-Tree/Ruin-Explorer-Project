@@ -12,6 +12,7 @@ var direction : Vector2 = Vector2.ZERO
 var invulnerable : bool = false
 var hp : int = 10
 var max_hp : int = 10
+var speed_boost_multiplier: float = 1.0
 
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
 @onready var animation_player : AnimationPlayer = $AnimatedSprite2D/AnimationPlayer
@@ -134,6 +135,17 @@ func update_hp( delta : int ) -> void:
 	hp = clampi( hp + delta, 0, max_hp )
 	PlayerHud.update_hp( hp, max_hp )
 	pass
+	
+
+func apply_speed_boost(multiplier: float, duration: float) -> void:
+	speed_boost_multiplier = multiplier
+	_run_speed_boost_timer(duration)
+
+
+func _run_speed_boost_timer(duration: float) -> void:
+	await get_tree().create_timer(duration).timeout
+	speed_boost_multiplier = 1.0
+	
 	
 func make_invulnerable( _duration : float = 1.0 ) -> void:
 	invulnerable = true

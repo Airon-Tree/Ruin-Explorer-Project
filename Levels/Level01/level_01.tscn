@@ -71,26 +71,6 @@ position = Vector2(1124, -774)
 [node name="Desk5" parent="Destory_Object" instance=ExtResource("6_x8nab")]
 position = Vector2(1131, -742)
 
-[node name="ItemPickup" parent="." instance=ExtResource("7_ekxsl")]
-position = Vector2(944, -752)
-item_data = ExtResource("8_b5pnd")
-
-[node name="ItemPickup4" parent="." instance=ExtResource("7_ekxsl")]
-position = Vector2(454, 163)
-item_data = ExtResource("9_4ku4y")
-
-[node name="ItemPickup2" parent="." instance=ExtResource("7_ekxsl")]
-position = Vector2(334, 115)
-item_data = ExtResource("10_8a7gw")
-
-[node name="ItemPickup3" parent="." instance=ExtResource("7_ekxsl")]
-position = Vector2(1070, -273)
-item_data = ExtResource("11_7th8g")
-
-[node name="ItemPickup5" parent="." instance=ExtResource("7_ekxsl")]
-position = Vector2(1071, -304)
-item_data = ExtResource("11_7th8g")
-
 [node name="PoisonHunter" parent="." instance=ExtResource("12_sjjdv")]
 z_index = 1
 position = Vector2(907, -853)
@@ -102,37 +82,9 @@ position = Vector2(1548, -865)
 [node name="Door" parent="." instance=ExtResource("14_vemw8")]
 position = Vector2(3, 369)
 
-[node name="BlueScreen2" parent="." instance=ExtResource("15_2aaia")]
-position = Vector2(726, 77)
-screen_text = "Have a good day
+[node name="Mimics" type="Node" parent="."]
 
-按E键关闭"
-
-[node name="BlueScreen" parent="." instance=ExtResource("15_2aaia")]
-position = Vector2(599, 77)
-screen_text = "Nice to meet u
-
-按E键关闭"
-
-[node name="BlueScreen4" parent="." instance=ExtResource("15_2aaia")]
-position = Vector2(1270, -880)
-screen_text = "Nice to meet u
-
-按E键关闭"
-
-[node name="BlueScreen5" parent="." instance=ExtResource("15_2aaia")]
-position = Vector2(1175, -880)
-screen_text = "Nice to meet u
-
-按E键关闭"
-
-[node name="BlueScreen3" parent="." instance=ExtResource("15_2aaia")]
-position = Vector2(1014, -301)
-screen_text = "Nice to meet u
-
-按E键关闭"
-
-[node name="MimicEnemy" parent="." instance=ExtResource("16_2wsva")]
+[node name="MimicEnemy" parent="Mimics" instance=ExtResource("16_2wsva")]
 z_index = 2
 position = Vector2(986, 92)
 detection_radius = 32.0
@@ -140,11 +92,47 @@ windup_time = 1.0
 chomp_duration = 0.5
 cooldown_time = 1.0
 chomp_radius = 54.0
-tilemap_layer_path = NodePath("../TileMap/FloorLayer")
-wall_layer_path = NodePath("../TileMap/WallLayer")
-poison_layer_path = NodePath("../TileMap/PoisonLayer")
+tilemap_layer_path = NodePath("../../TileMap/FloorLayer")
+wall_layer_path = NodePath("../../TileMap/WallLayer")
+poison_layer_path = NodePath("../../TileMap/PoisonLayer")
 
-[node name="MimicEnemy5" parent="." instance=ExtResource("16_2wsva")]
+[node name="MimicEnemy10" parent="Mimics" instance=ExtResource("16_2wsva")]
+z_index = 2
+position = Vector2(1171, -626)
+detection_radius = 32.0
+windup_time = 1.0
+chomp_duration = 0.5
+cooldown_time = 1.0
+chomp_radius = 54.0
+tilemap_layer_path = NodePath("../../TileMap/FloorLayer")
+wall_layer_path = NodePath("../../TileMap/WallLayer")
+poison_layer_path = NodePath("../../TileMap/PoisonLayer")
+
+[node name="MimicEnemy11" parent="Mimics" instance=ExtResource("16_2wsva")]
+z_index = 2
+position = Vector2(1209, -625)
+detection_radius = 32.0
+windup_time = 1.0
+chomp_duration = 0.5
+cooldown_time = 1.0
+chomp_radius = 54.0
+tilemap_layer_path = NodePath("../../TileMap/FloorLayer")
+wall_layer_path = NodePath("../../TileMap/WallLayer")
+poison_layer_path = NodePath("../../TileMap/PoisonLayer")
+
+[node name="MimicEnemy9" parent="Mimics" instance=ExtResource("16_2wsva")]
+z_index = 2
+position = Vector2(1199, -304)
+detection_radius = 32.0
+windup_time = 1.0
+chomp_duration = 0.5
+cooldown_time = 1.0
+chomp_radius = 54.0
+tilemap_layer_path = NodePath("../../TileMap/FloorLayer")
+wall_layer_path = NodePath("../../TileMap/WallLayer")
+poison_layer_path = NodePath("../../TileMap/PoisonLayer")
+
+[node name="MimicEnemy5" parent="Mimics" instance=ExtResource("16_2wsva")]
 z_index = 2
 position = Vector2(1092, 96)
 detection_radius = 32.0
@@ -152,11 +140,11 @@ windup_time = 1.0
 chomp_duration = 0.5
 cooldown_time = 1.0
 chomp_radius = 54.0
-tilemap_layer_path = NodePath("../TileMap/FloorLayer")
-wall_layer_path = NodePath("../TileMap/WallLayer")
-poison_layer_path = NodePath("../TileMap/PoisonLayer")
+tilemap_layer_path = NodePath("../../TileMap/FloorLayer")
+wall_layer_path = NodePath("../../TileMap/WallLayer")
+poison_layer_path = NodePath("../../TileMap/PoisonLayer")
 
-[node name="MimicEnemy6" parent="." instance=ExtResource("16_2wsva")]
+[node name="MimicEnemy6" parent="Mimics" instance=ExtResource("16_2wsva")]
 z_index = 2
 position = Vector2(1053, 169)
 detection_radius = 32.0
@@ -164,11 +152,11 @@ windup_time = 1.0
 chomp_duration = 0.5
 cooldown_time = 1.0
 chomp_radius = 54.0
-tilemap_layer_path = NodePath("../TileMap/FloorLayer")
-wall_layer_path = NodePath("../TileMap/WallLayer")
-poison_layer_path = NodePath("../TileMap/PoisonLayer")
+tilemap_layer_path = NodePath("../../TileMap/FloorLayer")
+wall_layer_path = NodePath("../../TileMap/WallLayer")
+poison_layer_path = NodePath("../../TileMap/PoisonLayer")
 
-[node name="MimicEnemy7" parent="." instance=ExtResource("16_2wsva")]
+[node name="MimicEnemy7" parent="Mimics" instance=ExtResource("16_2wsva")]
 z_index = 2
 position = Vector2(939, 223)
 detection_radius = 32.0
@@ -176,11 +164,11 @@ windup_time = 1.0
 chomp_duration = 0.5
 cooldown_time = 1.0
 chomp_radius = 54.0
-tilemap_layer_path = NodePath("../TileMap/FloorLayer")
-wall_layer_path = NodePath("../TileMap/WallLayer")
-poison_layer_path = NodePath("../TileMap/PoisonLayer")
+tilemap_layer_path = NodePath("../../TileMap/FloorLayer")
+wall_layer_path = NodePath("../../TileMap/WallLayer")
+poison_layer_path = NodePath("../../TileMap/PoisonLayer")
 
-[node name="MimicEnemy8" parent="." instance=ExtResource("16_2wsva")]
+[node name="MimicEnemy8" parent="Mimics" instance=ExtResource("16_2wsva")]
 z_index = 2
 position = Vector2(1175, 40)
 detection_radius = 32.0
@@ -188,11 +176,11 @@ windup_time = 1.0
 chomp_duration = 0.5
 cooldown_time = 1.0
 chomp_radius = 54.0
-tilemap_layer_path = NodePath("../TileMap/FloorLayer")
-wall_layer_path = NodePath("../TileMap/WallLayer")
-poison_layer_path = NodePath("../TileMap/PoisonLayer")
+tilemap_layer_path = NodePath("../../TileMap/FloorLayer")
+wall_layer_path = NodePath("../../TileMap/WallLayer")
+poison_layer_path = NodePath("../../TileMap/PoisonLayer")
 
-[node name="MimicEnemy2" parent="." instance=ExtResource("16_2wsva")]
+[node name="MimicEnemy2" parent="Mimics" instance=ExtResource("16_2wsva")]
 z_index = 2
 position = Vector2(932, 146)
 detection_radius = 32.0
@@ -200,11 +188,11 @@ windup_time = 0.75
 chomp_duration = 0.5
 cooldown_time = 1.0
 chomp_radius = 54.0
-tilemap_layer_path = NodePath("../TileMap/FloorLayer")
-wall_layer_path = NodePath("../TileMap/WallLayer")
-poison_layer_path = NodePath("../TileMap/PoisonLayer")
+tilemap_layer_path = NodePath("../../TileMap/FloorLayer")
+wall_layer_path = NodePath("../../TileMap/WallLayer")
+poison_layer_path = NodePath("../../TileMap/PoisonLayer")
 
-[node name="MimicEnemy3" parent="." instance=ExtResource("16_2wsva")]
+[node name="MimicEnemy3" parent="Mimics" instance=ExtResource("16_2wsva")]
 z_index = 2
 position = Vector2(934, 36)
 detection_radius = 32.0
@@ -212,11 +200,11 @@ windup_time = 0.75
 chomp_duration = 0.5
 cooldown_time = 1.0
 chomp_radius = 54.0
-tilemap_layer_path = NodePath("../TileMap/FloorLayer")
-wall_layer_path = NodePath("../TileMap/WallLayer")
-poison_layer_path = NodePath("../TileMap/PoisonLayer")
+tilemap_layer_path = NodePath("../../TileMap/FloorLayer")
+wall_layer_path = NodePath("../../TileMap/WallLayer")
+poison_layer_path = NodePath("../../TileMap/PoisonLayer")
 
-[node name="MimicEnemy4" parent="." instance=ExtResource("16_2wsva")]
+[node name="MimicEnemy4" parent="Mimics" instance=ExtResource("16_2wsva")]
 z_index = 2
 position = Vector2(1040, 24)
 detection_radius = 32.0
@@ -224,19 +212,71 @@ windup_time = 1.3
 chomp_duration = 0.5
 cooldown_time = 1.0
 chomp_radius = 54.0
-tilemap_layer_path = NodePath("../TileMap/FloorLayer")
-wall_layer_path = NodePath("../TileMap/WallLayer")
-poison_layer_path = NodePath("../TileMap/PoisonLayer")
+tilemap_layer_path = NodePath("../../TileMap/FloorLayer")
+wall_layer_path = NodePath("../../TileMap/WallLayer")
+poison_layer_path = NodePath("../../TileMap/PoisonLayer")
 
-[node name="InteractDoor" parent="." instance=ExtResource("17_02rl8")]
+[node name="ItemPickup0" type="Node" parent="."]
+
+[node name="ItemPickup" parent="ItemPickup0" instance=ExtResource("7_ekxsl")]
+position = Vector2(944, -752)
+item_data = ExtResource("8_b5pnd")
+
+[node name="ItemPickup4" parent="ItemPickup0" instance=ExtResource("7_ekxsl")]
+position = Vector2(454, 163)
+item_data = ExtResource("9_4ku4y")
+
+[node name="ItemPickup2" parent="ItemPickup0" instance=ExtResource("7_ekxsl")]
+position = Vector2(334, 115)
+item_data = ExtResource("10_8a7gw")
+
+[node name="ItemPickup3" parent="ItemPickup0" instance=ExtResource("7_ekxsl")]
+position = Vector2(1070, -273)
+item_data = ExtResource("11_7th8g")
+
+[node name="ItemPickup5" parent="ItemPickup0" instance=ExtResource("7_ekxsl")]
+position = Vector2(1071, -304)
+item_data = ExtResource("11_7th8g")
+
+[node name="BlueScreen0" type="Node" parent="."]
+
+[node name="BlueScreen2" parent="BlueScreen0" instance=ExtResource("15_2aaia")]
+position = Vector2(726, 77)
+screen_text = "The green light is an entity
+It need time to dig out
+Tun fast, don't stop"
+
+[node name="BlueScreen" parent="BlueScreen0" instance=ExtResource("15_2aaia")]
+position = Vector2(599, 77)
+screen_text = "Press Shift to run"
+
+[node name="BlueScreen4" parent="BlueScreen0" instance=ExtResource("15_2aaia")]
+position = Vector2(1270, -880)
+screen_text = "Get that key
+Then you can escape
+At the door in the first room"
+
+[node name="BlueScreen5" parent="BlueScreen0" instance=ExtResource("15_2aaia")]
+position = Vector2(1175, -880)
+screen_text = "Press J or Z to attack
+"
+
+[node name="BlueScreen3" parent="BlueScreen0" instance=ExtResource("15_2aaia")]
+position = Vector2(1014, -301)
+screen_text = "Press Esc to open your inventory
+Click item to use"
+
+[node name="InteractDoor0" type="Node" parent="."]
+
+[node name="InteractDoor" parent="InteractDoor0" instance=ExtResource("17_02rl8")]
 position = Vector2(881, 96)
 rotation = 1.5685081
 
-[node name="InteractDoor2" parent="." instance=ExtResource("17_02rl8")]
+[node name="InteractDoor2" parent="InteractDoor0" instance=ExtResource("17_02rl8")]
 position = Vector2(1149, -528)
-rotation = -0.0016615061
+rotation = -0.001661506
 
-[node name="InteractDoor3" parent="." instance=ExtResource("17_02rl8")]
+[node name="InteractDoor3" parent="InteractDoor0" instance=ExtResource("17_02rl8")]
 position = Vector2(1219, -528)
 rotation = -4.371861e-05
 

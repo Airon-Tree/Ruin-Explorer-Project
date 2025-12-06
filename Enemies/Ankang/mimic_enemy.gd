@@ -31,13 +31,13 @@ enum MimicState { DISGUISED, WINDUP, CHOMP, COOLDOWN }
 @onready var _chomp_audio: AudioStreamPlayer2D = $ChompAudio
 @onready var _anim_player: AnimationPlayer = $AnimationPlayer
 
+
 var _state: MimicState = MimicState.DISGUISED
 var _busy: bool = false
 
 
 func _ready() -> void:
-	player = PlayerManager.player
-	hit_box.damaged.connect(_take_damage)
+	super()
 
 	randomize()
 

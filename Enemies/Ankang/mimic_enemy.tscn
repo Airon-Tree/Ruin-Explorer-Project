@@ -131,6 +131,8 @@ radius = 11.045361
 
 [node name="MimicEnemy" type="CharacterBody2D"]
 position = Vector2(0, -1)
+collision_layer = 256
+collision_mask = 16
 script = ExtResource("1_kkmlh")
 disguise_sprites = Array[Texture2D]([SubResource("AtlasTexture_gpas6"), SubResource("AtlasTexture_8cmsa"), SubResource("AtlasTexture_dsedr"), SubResource("AtlasTexture_ayh5q"), SubResource("AtlasTexture_lte1b"), SubResource("AtlasTexture_wh5dd"), SubResource("AtlasTexture_cuqps")])
 glow_color = Color(1, 1, 1, 1)
@@ -159,10 +161,8 @@ libraries = {
 }
 
 [node name="HitBox" parent="." instance=ExtResource("2_30tw3")]
-collision_layer = 257
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-visible = false
 shape = SubResource("CircleShape2D_5a21k")
 
 [node name="ChompHurtBox" parent="." instance=ExtResource("3_j3etr")]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=11 format=3 uid="uid://d14vsq6gy0nsf"]
+
+[ext_resource type="PackedScene" uid="uid://b31jl28hxh0xn" path="res://GeneralNodes/HitBox/hit_box.tscn" id="1_72nnb"]
+[ext_resource type="Script" uid="uid://cig33j5rlxyhu" path="res://Enemies/ExpressTrainToHell/express_train_booth.gd" id="1_l6qvs"]
+[ext_resource type="Texture2D" uid="uid://dskrl3p6dvor7" path="res://Resource/train/ticket0.png" id="2_wqvai"]
+[ext_resource type="Texture2D" uid="uid://dngcruckltaa" path="res://Resource/train/ticket1.png" id="3_nbm1y"]
+[ext_resource type="Texture2D" uid="uid://c6q20cu4e3hav" path="res://Resource/train/ticket2.png" id="4_6v3kv"]
+[ext_resource type="Texture2D" uid="uid://bue4inog8moy5" path="res://Resource/train/ticket3.png" id="5_n34f7"]
+[ext_resource type="Texture2D" uid="uid://j57vxqvuieog" path="res://Resource/train/ticket4.png" id="6_8wevy"]
+[ext_resource type="AudioStream" uid="uid://df86ipgjer4xg" path="res://Resource/train/ping-43757.mp3" id="8_6v3kv"]
+[ext_resource type="AudioStream" uid="uid://cqj153frsj71v" path="res://Resource/train/train-warning.wav" id="9_6v3kv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqvai"]
+size = Vector2(160.00002, 114.99997)
+
+[node name="ExpressTrainBooth" type="Node2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_l6qvs")
+light_textures = Array[Texture2D]([ExtResource("2_wqvai"), ExtResource("3_nbm1y"), ExtResource("4_6v3kv"), ExtResource("5_n34f7"), ExtResource("6_8wevy")])
+
+[node name="BoothSprite" type="Sprite2D" parent="."]
+position = Vector2(29.999996, 0)
+texture = ExtResource("4_6v3kv")
+
+[node name="LightsSprite" type="Sprite2D" parent="."]
+
+[node name="LightTimer" type="Timer" parent="."]
+
+[node name="DisabledTimer" type="Timer" parent="."]
+
+[node name="HitBox" parent="." instance=ExtResource("1_72nnb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 60.000004)
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_wqvai")
+
+[node name="LightBeepPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_6v3kv")
+
+[node name="TrainWarningPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_6v3kv")
+max_polyphony = 2

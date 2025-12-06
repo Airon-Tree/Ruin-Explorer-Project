@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://daswgan0fof05"]
+
+[ext_resource type="PackedScene" uid="uid://gopcfynjy3tl" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="1_76inh"]
+[ext_resource type="Script" uid="uid://y5cn15p1by34" path="res://Enemies/ExpressTrainToHell/express_train.gd" id="1_svdi7"]
+[ext_resource type="Texture2D" uid="uid://c7d470jguv1h1" path="res://Resource/train/train.png" id="2_dvdes"]
+[ext_resource type="AudioStream" uid="uid://gyanj4pnayns" path="res://Resource/train/train.wav" id="4_nkjlr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svdi7"]
+size = Vector2(2806.6665, 219.99998)
+
+[node name="ExpressTrain" type="Node2D"]
+position = Vector2(1, -24)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_svdi7")
+shake_duration = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dvdes")
+flip_h = true
+
+[node name="HurtBox" parent="." instance=ExtResource("1_76inh")]
+collision_mask = 258
+damage = 99
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(6.6667175, 36.666664)
+shape = SubResource("RectangleShape2D_svdi7")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_nkjlr")
+volume_db = 20.0
+max_polyphony = 2
