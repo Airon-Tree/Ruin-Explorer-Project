@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c340mjenltn3v"]
+
+[ext_resource type="Script" uid="uid://ddklf8ir1d51u" path="res://Items/item_effects/item_effect.gd" id="1_63s1v"]
+[ext_resource type="Script" uid="uid://covrvnj3imixu" path="res://Items/scripts/item_data.gd" id="2_fxxat"]
+[ext_resource type="Texture2D" uid="uid://bhqfachrcfpcl" path="res://Resource/train/ticket_32_05.png" id="3_fxxat"]
+
+[resource]
+script = ExtResource("2_fxxat")
+name = "Ticket-04"
+description = "A ticket sold by the booth.
+
+The only information on the ticket:
+\"Express Train to Hell\"
+
+You can feel very strong warm and power within it"
+texture = ExtResource("3_fxxat")
+metadata/_custom_type_script = "uid://covrvnj3imixu"

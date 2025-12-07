@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://6j5pcybn7l0y"]
+
+[ext_resource type="Script" uid="uid://ddklf8ir1d51u" path="res://Items/item_effects/item_effect.gd" id="1_v30ts"]
+[ext_resource type="Script" uid="uid://covrvnj3imixu" path="res://Items/scripts/item_data.gd" id="2_oem1a"]
+[ext_resource type="Script" uid="uid://dffin2xrovuwt" path="res://Items/item_effects/item_train_ticket.gd" id="2_ou64p"]
+[ext_resource type="Texture2D" uid="uid://d3gv338bcfuo5" path="res://Resource/train/ticket_32_01.png" id="4_ou64p"]
+
+[sub_resource type="Resource" id="Resource_fb87f"]
+script = ExtResource("2_ou64p")
+power = 0
+metadata/_custom_type_script = "uid://dffin2xrovuwt"
+
+[resource]
+script = ExtResource("2_oem1a")
+name = "Ticket-00"
+description = "A ticket sold by the booth.
+
+\"Express Train to Hell\", but the destination is earth
+
+Just a paper ticket, no power within it"
+texture = ExtResource("4_ou64p")
+effects = Array[ExtResource("1_v30ts")]([SubResource("Resource_fb87f")])
+metadata/_custom_type_script = "uid://covrvnj3imixu"

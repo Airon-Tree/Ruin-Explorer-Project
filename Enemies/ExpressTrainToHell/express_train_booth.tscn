@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d14vsq6gy0nsf"]
+[gd_scene load_steps=21 format=3 uid="uid://d14vsq6gy0nsf"]
 
 [ext_resource type="PackedScene" uid="uid://b31jl28hxh0xn" path="res://GeneralNodes/HitBox/hit_box.tscn" id="1_72nnb"]
 [ext_resource type="Script" uid="uid://cig33j5rlxyhu" path="res://Enemies/ExpressTrainToHell/express_train_booth.gd" id="1_l6qvs"]
@@ -7,16 +7,31 @@
 [ext_resource type="Texture2D" uid="uid://c6q20cu4e3hav" path="res://Resource/train/ticket2.png" id="4_6v3kv"]
 [ext_resource type="Texture2D" uid="uid://bue4inog8moy5" path="res://Resource/train/ticket3.png" id="5_n34f7"]
 [ext_resource type="Texture2D" uid="uid://j57vxqvuieog" path="res://Resource/train/ticket4.png" id="6_8wevy"]
+[ext_resource type="Resource" uid="uid://6j5pcybn7l0y" path="res://Items/TrainTicket_00lights.tres" id="7_tp07t"]
+[ext_resource type="Resource" uid="uid://br0ifn0j5lx1t" path="res://Items/gem.tres" id="7_u0il2"]
 [ext_resource type="AudioStream" uid="uid://df86ipgjer4xg" path="res://Resource/train/ping-43757.mp3" id="8_6v3kv"]
+[ext_resource type="Script" uid="uid://covrvnj3imixu" path="res://Items/scripts/item_data.gd" id="8_j6nwe"]
+[ext_resource type="Resource" uid="uid://dkolpys0wfbop" path="res://Items/TrainTicket_01lights.tres" id="8_u0il2"]
 [ext_resource type="AudioStream" uid="uid://cqj153frsj71v" path="res://Resource/train/train-warning.wav" id="9_6v3kv"]
+[ext_resource type="Resource" uid="uid://dueoimh0hbs4w" path="res://Items/TrainTicket_02lights.tres" id="9_d8ti4"]
+[ext_resource type="Resource" uid="uid://bvoix3jib32he" path="res://Items/TrainTicket_03lights.tres" id="10_yaomh"]
+[ext_resource type="Resource" uid="uid://c340mjenltn3v" path="res://Items/TrainTicket_04lights.tres" id="11_j6nwe"]
+[ext_resource type="PackedScene" uid="uid://daswgan0fof05" path="res://Enemies/ExpressTrainToHell/express_train.tscn" id="14_no3qo"]
+[ext_resource type="Texture2D" uid="uid://cb3bwjt28gv36" path="res://Props/Door/Ekey.png" id="16_d8ti4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqvai"]
 size = Vector2(160.00002, 114.99997)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yaomh"]
+radius = 155.08061
 
 [node name="ExpressTrainBooth" type="Node2D"]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_l6qvs")
 light_textures = Array[Texture2D]([ExtResource("2_wqvai"), ExtResource("3_nbm1y"), ExtResource("4_6v3kv"), ExtResource("5_n34f7"), ExtResource("6_8wevy")])
+gem_item_data = ExtResource("7_u0il2")
+ticket_items_by_light = Array[ExtResource("8_j6nwe")]([ExtResource("7_tp07t"), ExtResource("8_u0il2"), ExtResource("9_d8ti4"), ExtResource("10_yaomh"), ExtResource("11_j6nwe")])
+train_scene = ExtResource("14_no3qo")
 
 [node name="BoothSprite" type="Sprite2D" parent="."]
 position = Vector2(29.999996, 0)
@@ -34,6 +49,7 @@ texture = ExtResource("4_6v3kv")
 position = Vector2(0, 60.000004)
 scale = Vector2(0.9999997, 0.9999997)
 shape = SubResource("RectangleShape2D_wqvai")
+debug_color = Color(0.9605481, 0.18237653, 0.21952811, 0.41960785)
 
 [node name="LightBeepPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_6v3kv")
@@ -41,3 +57,16 @@ stream = ExtResource("8_6v3kv")
 [node name="TrainWarningPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_6v3kv")
 max_polyphony = 2
+
+[node name="InteractArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, 44.999996)
+shape = SubResource("CircleShape2D_yaomh")
+debug_color = Color(0, 0.64402795, 0.2157146, 0.14901961)
+
+[node name="InteractHint" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -175)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("16_d8ti4")

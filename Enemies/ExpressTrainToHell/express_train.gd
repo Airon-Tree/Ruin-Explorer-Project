@@ -17,7 +17,7 @@ var _direction: Vector2 = Vector2.RIGHT
 # func _ready() -> void:
 	# setup(Vector2.RIGHT)
 
-# Called by the booth when the train spawns.
+# called by the booth when the train spawns.
 # `direction` is usually Vector2.RIGHT or Vector2.LEFT
 func setup(direction: Vector2) -> void:
 	_direction = direction.normalized()
@@ -45,7 +45,7 @@ func _start_life_timer() -> void:
 
 
 func _start_screen_shake() -> void:
-	# Uses global PlayerManager and the player's camera.
+
 	if not PlayerManager or not PlayerManager.player:
 		# print("no player")
 		return

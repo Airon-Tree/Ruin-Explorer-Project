@@ -20,6 +20,7 @@ func add_item( item : ItemData, count : int = 1 ) -> bool:
 			new.item_data = item
 			new.quantity  = count
 			slots[ i ] = new
+			print("added in ", i, " slot")
 			new.changed.connect( slot_changed )
 			return true
 			
