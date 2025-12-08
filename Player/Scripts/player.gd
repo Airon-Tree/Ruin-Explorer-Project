@@ -14,6 +14,9 @@ var hp : int = 10
 var max_hp : int = 10
 var speed_boost_multiplier: float = 1.0
 
+var is_dead: bool = false
+@onready var death_sfx: AudioStreamPlayer2D = $Audio/DeathSFX
+
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
 @onready var animation_player : AnimationPlayer = $AnimatedSprite2D/AnimationPlayer
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -36,6 +39,8 @@ func _ready():
 	pass
 	
 func _process(_delta):
+	if is_dead:
+		return
 	#direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	#direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	direction = Vector2(
@@ -128,14 +133,63 @@ func _take_damage( hurt_box : HurtBox) -> void:
 		player_damaged.emit( hurt_box )
 	else:
 		player_damaged.emit( hurt_box )
-		update_hp(9)
+		_on_player_death()
 	pass
 	
 func update_hp( delta : int ) -> void:
 	hp = clampi( hp + delta, 0, max_hp )
 	PlayerHud.update_hp( hp, max_hp )
 	pass
+
+func _on_player_death() -> void:
 	
+	# Prevent double-trigger if something hits again at 0 HP
+	if is_dead:
+		return
+	is_dead = true
+	
+	direction = Vector2.ZERO
+	velocity = Vector2.ZERO
+	
+	if state_machine:
+		state_machine.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	# disable HitBox so enemies stop
+	if hit_box:
+		hit_box.monitoring = false
+	
+	if death_sfx:
+		death_sfx.play()
+	
+	# game keep running for 1 second
+	await get_tree().create_timer(1.0).timeout
+	
+	var ui_node := get_tree().current_scene.get_node_or_null("WinLoseScreen")
+	if ui_node is WinLoseScreen:
+		var screen := ui_node as WinLoseScreen
+		screen.show_death()
+	else:
+		get_tree().reload_current_scene()
+		
+		
+func reset_after_death() -> void:
+	# Clear death flag
+	is_dead = false
+	
+	direction = Vector2.ZERO
+	velocity = Vector2.ZERO
+	
+	invulnerable = false
+	if hit_box:
+		hit_box.monitoring = true
+	
+	if state_machine:
+		state_machine.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	var delta_hp: int = max_hp - hp
+	if delta_hp != 0:
+		update_hp(delta_hp)
+
 
 func apply_speed_boost(multiplier: float, duration: float) -> void:
 	speed_boost_multiplier = multiplier

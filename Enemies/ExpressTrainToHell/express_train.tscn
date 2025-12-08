@@ -12,6 +12,7 @@ size = Vector2(2806.6665, 219.99998)
 position = Vector2(1, -24)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_svdi7")
+life_time = 5.0
 shake_duration = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

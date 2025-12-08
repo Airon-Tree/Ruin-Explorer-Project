@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://dyxlh0dxk52aa"]
+[gd_scene load_steps=86 format=3 uid="uid://dyxlh0dxk52aa"]
 
 [ext_resource type="Texture2D" uid="uid://16xsda7rfokq" path="res://Resource/mystic_woods_free_2.2/sprites/characters/player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://ga0434say31g" path="res://Player/Scripts/player.gd" id="1_kwdud"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://ruo632bkc0vx" path="res://Player/Scripts/player_camera.gd" id="10_apopc"]
 [ext_resource type="Script" uid="uid://jorjntbdvai1" path="res://Player/Scripts/state_stun.gd" id="10_gu6f8"]
 [ext_resource type="PackedScene" uid="uid://b31jl28hxh0xn" path="res://GeneralNodes/HitBox/hit_box.tscn" id="12_5htga"]
+[ext_resource type="AudioStream" uid="uid://bwan7k3amp4ue" path="res://Resource/Isaac_dies_new_1.wav" id="12_dkpta"]
 [ext_resource type="AudioStream" uid="uid://crxrqctkn7xj5" path="res://Player/Audio/hit_player.wav" id="14_dkpta"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3vf3"]
@@ -984,6 +985,9 @@ script = ExtResource("10_apopc")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
 volume_db = -10.0
 max_polyphony = 4
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("12_dkpta")
 
 [node name="Interactions" type="Node2D" parent="."]
 script = ExtResource("9_x3vf3")

@@ -24,8 +24,12 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	
 	if body is Player:
-		print("YOU WIN!")
-		get_tree().quit()
+		var ui_node := get_tree().current_scene.get_node_or_null("WinLoseScreen")
+		if ui_node is WinLoseScreen:
+			var screen := ui_node as WinLoseScreen
+			screen.show_win()
+		else:
+			get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
 
 
 func _on_key_card_picked_up() -> void:

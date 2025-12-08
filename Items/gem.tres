@@ -11,6 +11,6 @@ region = Rect2(0, 0, 32, 32)
 [resource]
 script = ExtResource("1_5ujwg")
 name = "Gem"
-description = "Test items Gem"
+description = "A green gem, maybe you can exchange something with it"
 texture = SubResource("AtlasTexture_yq8b3")
 metadata/_custom_type_script = "uid://covrvnj3imixu"
