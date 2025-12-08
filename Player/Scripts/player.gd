@@ -35,7 +35,8 @@ func _ready():
 	state_machine.initialize(self)
 	hit_box.damaged.connect( _take_damage )
 	poison_timer.timeout.connect(_on_poison_tick)
-	update_hp(99)
+	hp = max_hp
+	PlayerHud.update_hp(hp, max_hp)
 	pass
 	
 func _process(_delta):
