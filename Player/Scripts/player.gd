@@ -87,6 +87,7 @@ func _take_poison_damage(amount: float) -> void:
 	if hp - dmg > 0:
 		update_hp(-dmg)
 	else:
+		update_hp(-hp)
 		_on_player_death()
 	effect_animation_player.play("damaged")
 
@@ -128,10 +129,11 @@ func anim_direction() -> String:
 func _take_damage( hurt_box : HurtBox) -> void:
 	if invulnerable == true:
 		return
-	update_hp( -hurt_box.damage )
 	if hp - hurt_box.damage > 0:
+		update_hp( -hurt_box.damage )
 		player_damaged.emit( hurt_box )
 	else:
+		update_hp(-hp)
 		player_damaged.emit( hurt_box )
 		_on_player_death()
 	pass
