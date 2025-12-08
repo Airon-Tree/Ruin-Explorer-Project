@@ -87,7 +87,7 @@ func _take_poison_damage(amount: float) -> void:
 	if hp - dmg > 0:
 		update_hp(-dmg)
 	else:
-		update_hp(9)
+		_on_player_death()
 	effect_animation_player.play("damaged")
 
 
