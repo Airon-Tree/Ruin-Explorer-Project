@@ -38,14 +38,14 @@ func _on_body_entered(body):
 	# 检查节点名字
 	if body.name == "Player":  # 改成你们玩家的实际名字
 		player_nearby = true
-		print("玩家靠近 BlueScreen")
+		# print("玩家靠近 BlueScreen")
 		current_player = body
 		interact_hint.show()
 
 func _on_body_exited(body):
 	if body.name == "Player":
 		player_nearby = false
-		print("玩家离开 BlueScreen")
+		# print("玩家离开 BlueScreen")
 		interact_hint.hide()
 		if screen_open:
 			close_screen()
