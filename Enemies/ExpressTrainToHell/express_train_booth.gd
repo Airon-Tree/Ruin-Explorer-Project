@@ -39,8 +39,8 @@ var _disabled: bool = false
 
 func _ready() -> void:
 	# set up the light timer
+	_light_timer.stop()
 	_light_timer.wait_time = seconds_per_light
-	# _light_timer.autostart = true
 	_light_timer.one_shot = false
 	_light_timer.timeout.connect(_on_light_timer_timeout)
 	_light_timer.start()
