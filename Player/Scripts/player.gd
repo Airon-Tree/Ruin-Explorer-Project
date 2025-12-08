@@ -129,7 +129,7 @@ func _take_damage( hurt_box : HurtBox) -> void:
 	if invulnerable == true:
 		return
 	update_hp( -hurt_box.damage )
-	if hp > 0:
+	if hp - hurt_box.damage > 0:
 		player_damaged.emit( hurt_box )
 	else:
 		player_damaged.emit( hurt_box )
