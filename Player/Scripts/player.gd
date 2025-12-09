@@ -151,6 +151,8 @@ func _on_player_death() -> void:
 		return
 	is_dead = true
 	
+	PlayerHud.set_hp_bar_visible(false)
+	
 	direction = Vector2.ZERO
 	velocity = Vector2.ZERO
 	
@@ -192,6 +194,8 @@ func reset_after_death() -> void:
 	var delta_hp: int = max_hp - hp
 	if delta_hp != 0:
 		update_hp(delta_hp)
+		
+	PlayerHud.set_hp_bar_visible(true)
 
 
 func apply_speed_boost(multiplier: float, duration: float) -> void:

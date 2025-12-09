@@ -8,7 +8,7 @@ func _ready():
 
 
 func _on_start_button_pressed() -> void:
-	print("按钮被点击了!") 
+	#print("按钮被点击了!") 
 	get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
 
 

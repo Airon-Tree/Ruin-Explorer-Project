@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var hearts : Array[ HeartGUI ] = []
 
+static var instance: PlayerHud
 
 func _ready():
 	for child in $Control/HFlowContainer.get_children():
@@ -14,26 +15,30 @@ func _ready():
 func update_hp( _hp: int, _max_hp: int ) -> void:
 	update_max_hp( _max_hp )
 	for i in _max_hp:
+		#print("updating heart bar: ", i, " with health value: ", _hp)
 		update_heart( i, _hp)
-		pass
+		
 	pass
 	
 	
 func update_heart( _index : int, _hp : int ) -> void:
 	var _value : int = clampi( _hp - _index * 10, 0, 10 )
-	print("heart value: ", _value)
 	hearts[ _index ].value = _value
+	#print("heart bar: ", _index, " updated health value: ", _value)
 	pass
 	
 func update_max_hp( _max_hp : int ) -> void:
 	var _heart_count : int = roundi( _max_hp * 0.1 )
-	print("heart count: ", _heart_count)
+	#print("heart count: ", _heart_count)
 	for i in hearts.size():
 		# print("heart size: ", hearts.size())
 		if i < _heart_count:
 			hearts[i].visible = true
-			print("The number of heart shows: ", i)
+			#print("The number of heart shows: ", i)
 		else:
 			hearts[i].visible = false
-			print("The number of heart hid: ", i)
+			#print("The number of heart hid: ", i)
 	pass
+	
+func set_hp_bar_visible(is_visible: bool) -> void:
+	visible = is_visible
