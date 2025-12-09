@@ -14,6 +14,8 @@ var hp : int = 10
 var max_hp : int = 10
 var speed_boost_multiplier: float = 1.0
 
+var poison_layer: PoisonLayer = null
+
 var is_dead: bool = false
 @onready var death_sfx: AudioStreamPlayer2D = $Audio/DeathSFX
 
@@ -22,10 +24,10 @@ var is_dead: bool = false
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
 @onready var hit_box: HitBox = $HitBox
-
-@onready var poison_layer: PoisonLayer = (
-	get_tree().get_first_node_in_group("poison_layer") as PoisonLayer
-)
+#
+#@onready var poison_layer: PoisonLayer = (
+	#get_tree().get_first_node_in_group("poison_layer") as PoisonLayer
+#)
 @onready var poison_timer: Timer = $PoisonTickTimer
 
 
@@ -56,6 +58,8 @@ func _physics_process(_delta: float) -> void:
 	_check_poison(_delta)
 
 func _check_poison(delta: float) -> void:
+	_resolve_poison_layer()
+	
 	if poison_layer == null:
 		return
 
@@ -65,6 +69,18 @@ func _check_poison(delta: float) -> void:
 		_enter_poison()
 	else:
 		_exit_poison()
+		
+func _resolve_poison_layer() -> void:
+	# already have a valid layer in the tree, keep it
+	if poison_layer != null and poison_layer.is_inside_tree():
+		return
+	
+	# Otherwise, try to find a new one
+	var node := get_tree().get_first_node_in_group("poison_layer")
+	if node is PoisonLayer:
+		poison_layer = node as PoisonLayer
+	else:
+		poison_layer = null
 
 func _enter_poison() -> void:
 	# If timer is already running, do nothing
@@ -217,5 +233,4 @@ func make_invulnerable( _duration : float = 1.0 ) -> void:
 	invulnerable = false
 	hit_box.monitoring = true
 	pass
-	
 	
