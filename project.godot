@@ -17,6 +17,7 @@ config/icon="res://Resource/icon.svg"
 
 [autoload]
 
+BgMmanager="*res://Scenes/BGMmanager.tscn"
 LevelManager="*res://1_Globals/GlobalLevelManager.gd"
 PlayerHud="*res://GUI/player_hud/player_hud.tscn"
 PlayerManager="*res://1_Globals/global_player_manager.gd"

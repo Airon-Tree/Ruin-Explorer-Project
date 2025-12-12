@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6v25sr6twwbp"]
+
+[ext_resource type="Script" uid="uid://el6nojb8kbs0" path="res://Scenes/BGMmanager.gd" id="1_1qrgd"]
+[ext_resource type="AudioStream" uid="uid://d1rdpc3slg63b" path="res://Scenes/Abandoned Circuitry.mp3" id="2_bxxu7"]
+
+[node name="BGMmanager" type="Node"]
+script = ExtResource("1_1qrgd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bxxu7")
+autoplay = true
