@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://q0xmimhxqvx8"]
+
+[ext_resource type="Script" uid="uid://bwbgtjxn7k87m" path="res://Props/Blockers/desk.gd" id="1_pd87d"]
+[ext_resource type="Texture2D" uid="uid://clc37xivc4lbs" path="res://Resource/Modern_Office_Revamped_v1.2/4_Modern_Office_singles/32x32/Modern_Office_Singles_32x32_173.png" id="2_oud6f"]
+[ext_resource type="PackedScene" uid="uid://b31jl28hxh0xn" path="res://GeneralNodes/HitBox/hit_box.tscn" id="3_pt6i5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rd6yp"]
+size = Vector2(22, 30.34375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m3ok"]
+size = Vector2(22, 17.5)
+
+[node name="EI_Water_Machine" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_pd87d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, -10.000001)
+scale = Vector2(0.578125, 0.5989583)
+texture = ExtResource("2_oud6f")
+
+[node name="HitBox" parent="." instance=ExtResource("3_pt6i5")]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0.5, 1.4375)
+shape = SubResource("RectangleShape2D_rd6yp")
+debug_color = Color(0.64982945, 0.52035034, 5.7756904e-07, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_0m3ok")

@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://ds3tbbtnbpigp"]
+
+[ext_resource type="Script" uid="uid://bwbgtjxn7k87m" path="res://Props/Blockers/desk.gd" id="1_oonxr"]
+[ext_resource type="Texture2D" uid="uid://d3qfoq7bfx3c0" path="res://Resource/Modern_Office_Revamped_v1.2/4_Modern_Office_singles/32x32/Modern_Office_Singles_32x32_295.png" id="2_05a51"]
+[ext_resource type="Texture2D" uid="uid://cl316yr82tt58" path="res://Resource/Modern_Office_Revamped_v1.2/4_Modern_Office_singles/32x32/Modern_Office_Singles_32x32_311.png" id="3_agvi6"]
+[ext_resource type="Texture2D" uid="uid://ci32eljfin26l" path="res://Resource/Modern_Office_Revamped_v1.2/4_Modern_Office_singles/32x32/Modern_Office_Singles_32x32_273.png" id="4_ej21u"]
+[ext_resource type="Texture2D" uid="uid://b2l0v3ixneetf" path="res://Resource/Modern_Office_Revamped_v1.2/4_Modern_Office_singles/32x32/Modern_Office_Singles_32x32_128.png" id="5_mwwxl"]
+[ext_resource type="PackedScene" uid="uid://b31jl28hxh0xn" path="res://GeneralNodes/HitBox/hit_box.tscn" id="6_l4a5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rd6yp"]
+size = Vector2(22, 30.34375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oonxr"]
+size = Vector2(25, 34)
+
+[node name="EI_Table" type="Node2D"]
+z_index = 1
+script = ExtResource("1_oonxr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.750001, -18.125)
+scale = Vector2(0.4140625, 0.53906256)
+texture = ExtResource("2_05a51")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(4, -12)
+scale = Vector2(0.3515625, 0.43489578)
+texture = ExtResource("3_agvi6")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(17, -9.000001)
+scale = Vector2(0.32031247, 0.26822913)
+texture = ExtResource("4_ej21u")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(17, -19)
+scale = Vector2(0.3671875, 0.37239584)
+texture = ExtResource("5_mwwxl")
+
+[node name="HitBox" parent="." instance=ExtResource("6_l4a5u")]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(4, -0.21875)
+shape = SubResource("RectangleShape2D_rd6yp")
+debug_color = Color(0.64982945, 0.52035034, 5.7756904e-07, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-8, 8)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+y_sort_enabled = true
+position = Vector2(12, -16)
+shape = SubResource("RectangleShape2D_oonxr")

@@ -931,6 +931,8 @@ script = ExtResource("1_kwdud")
 shape = SubResource("CircleShape2D_x3vf3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_b26j0")
 animation = &"idle_down"

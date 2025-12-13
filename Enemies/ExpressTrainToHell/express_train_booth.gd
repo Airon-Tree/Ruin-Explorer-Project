@@ -128,7 +128,7 @@ func _trigger_train() -> void:
 	if target_node is Node2D:
 		target_y = (target_node as Node2D).global_position.y
 	elif PlayerManager and PlayerManager.player:
-		target_y = PlayerManager.player.global_position.y
+		target_y = PlayerManager.player.global_position.y - 10.0
 	
 	# decide starting X: 
 	# 
