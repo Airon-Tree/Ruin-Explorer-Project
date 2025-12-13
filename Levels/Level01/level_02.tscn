@@ -103,3 +103,5 @@ position = Vector2(-178, -40)
 
 [node name="WinLoseScreen" parent="." instance=ExtResource("14_uvivo")]
 visible = false
+
+[connection signal="picked_up" from="KeyCard" to="Door" method="_on_key_card_picked_up"]
