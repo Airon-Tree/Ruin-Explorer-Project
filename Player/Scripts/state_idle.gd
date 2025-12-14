@@ -16,6 +16,8 @@ func process( _delta : float ) -> State:
 	if player.direction != Vector2.ZERO:
 		return walk
 	player.velocity = Vector2.ZERO
+	#regen stamina faster when idle
+	player.update_stamina_value(_delta, false, player.idle_regen_multiplier)
 	return null
 
 func physics(_delta : float ) -> State:

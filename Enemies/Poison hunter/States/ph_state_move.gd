@@ -2,9 +2,9 @@ class_name PHStateMove
 extends EnemyState
 
 @export var anim_name: String = "walk"
-@export var move_speed: float = 40.0
-@export var chase_speed: float = 100.0
-@export var chase_player_radius: float = 200.0  # how far to chase the player when no poison
+@export var move_speed: float = 80.0
+@export var chase_speed: float = 105.0
+@export var chase_player_radius: float = 300.0  # how far to chase the player when no poison
 
 # Wander / idle settings when no target is found
 @export var wander_speed: float = 20.0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyadi0b7kiyni"]
+[gd_scene load_steps=5 format=3 uid="uid://cyadi0b7kiyni"]
 
 [ext_resource type="Texture2D" uid="uid://dhyr5c5nostaw" path="res://GUI/player_hud/gui-health.png" id="1_alx7a"]
 [ext_resource type="Script" uid="uid://d04mm2jbovcxa" path="res://GUI/player_hud/player_hud.gd" id="1_oghrr"]
 [ext_resource type="PackedScene" uid="uid://cdxqojla33bie" path="res://GUI/player_hud/heart_gui.tscn" id="2_oghrr"]
+[ext_resource type="PackedScene" uid="uid://drf0ykah5oodj" path="res://GUI/player_hud/stamina_gui.tscn" id="4_4b3j6"]
 
 [node name="PlayerHud" type="CanvasLayer"]
 layer = 2
@@ -22,6 +23,17 @@ position = Vector2(405, 21)
 texture = ExtResource("1_alx7a")
 region_enabled = true
 region_rect = Rect2(28.602386, 0, 34.397614, 8.054691)
+
+[node name="Stamina" parent="Control" instance=ExtResource("4_4b3j6")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -31.0
+offset_right = 84.0
+offset_bottom = 0.0
+grow_vertical = 0
 
 [node name="HFlowContainer" type="VFlowContainer" parent="Control"]
 layout_mode = 0

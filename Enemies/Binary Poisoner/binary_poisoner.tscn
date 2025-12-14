@@ -1550,7 +1550,7 @@ _data = {
 radius = 12.0415945
 
 [node name="BinaryPoisoner" type="CharacterBody2D"]
-collision_layer = 256
+collision_layer = 4
 collision_mask = 16
 script = ExtResource("1_fp2y1")
 hp = 5

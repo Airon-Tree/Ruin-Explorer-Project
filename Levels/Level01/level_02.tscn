@@ -78,8 +78,8 @@ position = Vector2(398, -158)
 rotation = 1.5707964
 
 [node name="InteractDoor3" parent="." instance=ExtResource("10_pj8ga")]
-position = Vector2(694, -159)
-rotation = 1.5707964
+position = Vector2(722, -159)
+rotation = -1.5707964
 
 [node name="InteractDoor4" parent="." instance=ExtResource("10_pj8ga")]
 position = Vector2(-41, -132)

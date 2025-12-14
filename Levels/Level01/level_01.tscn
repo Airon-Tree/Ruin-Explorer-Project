@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://cii2ykn1g7bax"]
+[gd_scene load_steps=27 format=4 uid="uid://cii2ykn1g7bax"]
 
 [ext_resource type="PackedScene" uid="uid://dh6cgav4mmfup" path="res://Levels/player_spawn.tscn" id="1_atl6a"]
 [ext_resource type="PackedScene" uid="uid://nqnfphuogjqn" path="res://Tile Maps/FloorLayer.tscn" id="2_02rl8"]
@@ -24,15 +24,12 @@
 [ext_resource type="PackedScene" uid="uid://brs71a6ruif1i" path="res://Items/blue_screen.tscn" id="15_2aaia"]
 [ext_resource type="PackedScene" uid="uid://bux6lba35alf" path="res://Enemies/Ankang/mimic_enemy.tscn" id="16_2wsva"]
 [ext_resource type="PackedScene" uid="uid://denlabf0x43ul" path="res://Props/Door/interact_door.tscn" id="17_02rl8"]
-[ext_resource type="PackedScene" uid="uid://x8fnbi6dfwc8" path="res://Enemies/Binary Poisoner/binary_poisoner.tscn" id="19_anqvk"]
 [ext_resource type="PackedScene" uid="uid://g2s13ivrto7p" path="res://GUI/win_death/win_lose_screen.tscn" id="19_mxhg7"]
 [ext_resource type="PackedScene" uid="uid://dy6beumubgu3v" path="res://Props/Blockers/chair_clean.tscn" id="27_2aaia"]
 
 [node name="Level01" type="Node2D"]
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_atl6a")]
-z_index = 0
-y_sort_enabled = false
 position = Vector2(15, 215)
 
 [node name="TileMap" type="Node" parent="."]
@@ -429,8 +426,6 @@ text = "← Destroy the barricade
 
      Use Z or J to attack
 "
-
-[node name="BinaryPoisoner" parent="." instance=ExtResource("19_anqvk")]
 
 [node name="Desk" parent="." instance=ExtResource("8_8a7gw")]
 position = Vector2(886, -631)
