@@ -1547,6 +1547,7 @@ _data = {
 radius = 12.0415945
 
 [node name="PoisonHunter" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 256
 collision_mask = 272
 script = ExtResource("1_eg5pc")

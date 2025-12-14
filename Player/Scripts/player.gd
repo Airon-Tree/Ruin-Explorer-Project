@@ -228,9 +228,14 @@ func reset_after_death() -> void:
 	if state_machine:
 		state_machine.process_mode = Node.PROCESS_MODE_INHERIT
 	
+	# ---- HP reset ----
 	var delta_hp: int = max_hp - hp
 	if delta_hp != 0:
 		update_hp(delta_hp)
+		
+	# ---- STAMINA reset ----
+	stamina = float(max_stamina)
+	PlayerHud.update_stamina(max_stamina, max_stamina)
 		
 	PlayerHud.set_hp_bar_visible(true)
 

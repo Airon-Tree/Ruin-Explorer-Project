@@ -9,6 +9,7 @@
 size = Vector2(2806.6665, 219.99998)
 
 [node name="ExpressTrain" type="Node2D"]
+z_index = 1
 position = Vector2(1, -24)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_svdi7")

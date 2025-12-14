@@ -130,6 +130,7 @@ radius = 11.045361
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44uuf"]
 
 [node name="MimicEnemy" type="CharacterBody2D"]
+z_index = 1
 position = Vector2(0, -1)
 collision_layer = 256
 collision_mask = 16
