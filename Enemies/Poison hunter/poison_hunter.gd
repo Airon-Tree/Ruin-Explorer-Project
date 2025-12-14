@@ -1,24 +1,31 @@
 extends Enemy
 class_name PoisonHunter
 
-# Poison & wall layers (found via groups)
+# Poison layer (found via group)
 @onready var poison_layer: PoisonLayer = get_tree().get_first_node_in_group("poison_layer")
-@onready var wall_layer: WallLayer = get_tree().get_first_node_in_group("wall_layer")
 
 # How far (in tiles) this enemy can smell poison
-@export var smell_radius_tiles: int = 6
+@export var smell_radius_tiles: int = 3
+
+# Smell ray collision mask:
+# "Walls" is layer 5 => Bit 4 => value 16
+@export var smell_collision_mask: int = 16
 
 
-## Find closest poison tile in smell radius, with LOS check.
+## Find closest poison tile in smell radius, with physics LOS check.
 ## Returns Vector2.INF if no valid poison target.
 func get_poison_target_world_pos() -> Vector2:
-	if poison_layer == null or wall_layer == null:
+	if poison_layer == null:
 		return Vector2.INF
+
+	# Exclude self so the ray won't hit hunter's own colliders.
+	var exclude := [self]
 
 	return poison_layer.find_closest_poison_in_radius_with_LOS(
 		global_position,
 		smell_radius_tiles,
-		wall_layer
+		smell_collision_mask,
+		exclude
 	)
 
 

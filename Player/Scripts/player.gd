@@ -17,6 +17,23 @@ var speed_boost_multiplier: float = 1.0
 var poison_layer: PoisonLayer = null
 
 var is_dead: bool = false
+
+@export var max_stamina: int = 26
+@export var stamina_drain_per_sec: float = 10.0
+@export var stamina_regen_per_sec: float = 7.0
+@export var min_stamina_to_run: int = 1
+@export var idle_regen_multiplier: float = 2.0
+
+var stamina: float = 26.0
+
+@export var exhausted_cooldown_sec: float = 2.0   # cooldown if stamina reaches 0
+@export var stamina_to_exit_exhausted: int = 6    # after cooldown，need to recover to at least this value to run again
+
+var exhausted: bool = false
+var _exhausted_timer: float = 0.0
+
+
+
 @onready var death_sfx: AudioStreamPlayer2D = $Audio/DeathSFX
 
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
@@ -39,6 +56,10 @@ func _ready():
 	poison_timer.timeout.connect(_on_poison_tick)
 	hp = max_hp
 	PlayerHud.update_hp(hp, max_hp)
+	
+	stamina = float(max_stamina)
+	PlayerHud.update_stamina(int(stamina), max_stamina)
+
 	pass
 	
 func _process(_delta):
@@ -223,7 +244,38 @@ func _run_speed_boost_timer(duration: float) -> void:
 	await get_tree().create_timer(duration).timeout
 	speed_boost_multiplier = 1.0
 	
-	
+func can_run() -> bool:
+	if exhausted:
+		return false
+	return stamina >= float(min_stamina_to_run)
+
+
+func update_stamina_value(delta: float, is_running: bool, regen_mult: float = 1.0) -> void:
+	# 1) update exhausted timer at first
+	if exhausted:
+		_exhausted_timer -= delta
+		if _exhausted_timer <= 0.0 and stamina >= float(stamina_to_exit_exhausted):
+			exhausted = false
+
+	# 2) drain / regen
+	if is_running and not exhausted:
+		stamina -= stamina_drain_per_sec * delta
+	# need to take a small break before regen
+	elif _exhausted_timer <= 0.0:
+		stamina += stamina_regen_per_sec * regen_mult * delta
+
+	stamina = clampf(stamina, 0.0, float(max_stamina))
+
+	# 3) exhausted triggered：when stamina reaches exactly 0
+	if not exhausted and stamina <= 1.0:
+		exhausted = true
+		_exhausted_timer = exhausted_cooldown_sec
+
+	# 4) UI：use floor to display 0 value
+	PlayerHud.update_stamina(int(floor(stamina)), max_stamina)
+
+
+
 func make_invulnerable( _duration : float = 1.0 ) -> void:
 	invulnerable = true
 	hit_box.monitoring = false

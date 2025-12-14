@@ -10,8 +10,9 @@ size = Vector2(24, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33nli"]
 size = Vector2(20, 15)
 
-[node name="Desk" type="Node2D"]
+[node name="tv_on" type="Node2D"]
 z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_hww4p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

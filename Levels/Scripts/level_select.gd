@@ -1,7 +1,7 @@
 extends Control
 
 @export var level01_path : String = "res://Levels/Level01/level_01.tscn"
-@export var level02_path : String = "Level-02 path"
+@export var level02_path : String = "res://Levels/Level01/level_02.tscn"
 @export var level03_path : String = "res://Levels/Level01/level_03.tscn"
 
 

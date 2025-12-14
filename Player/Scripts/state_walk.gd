@@ -16,8 +16,7 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-
-func process(_delta: float) -> State:
+func process(delta: float) -> State:
 	if player.direction == Vector2.ZERO:
 		player.velocity = Vector2.ZERO
 		return idle
@@ -26,14 +25,22 @@ func process(_delta: float) -> State:
 	var speed: float = move_speed * player.speed_boost_multiplier
 	
 	# Hold Shift to "run"
-	if Input.is_action_pressed("run"):
+	var wants_run := Input.is_action_pressed("run")
+	var running := wants_run and player.can_run()
+
+	if running:
 		speed *= run_speed_multiplier
-	
+
 	player.velocity = player.direction * speed
+
+	# Drain/regen stamina AFTER we decide running
+	player.update_stamina_value(delta, running)
+
+	# If stamina just hit 0, next frame running becomes false automatically
 	
 	if player.set_direction():
 		player.update_animation("walk")
-	
+
 	return null
 
 

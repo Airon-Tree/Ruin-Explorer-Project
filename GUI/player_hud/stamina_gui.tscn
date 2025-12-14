@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://drf0ykah5oodj"]
+
+[ext_resource type="Script" uid="uid://ckqelqx4pxvp4" path="res://GUI/player_hud/stamina_gui.gd" id="1_eqr3m"]
+[ext_resource type="Texture2D" uid="uid://dfgs0xx7c5ivi" path="res://GUI/player_hud/ui x1.png" id="2_7psio"]
+
+[node name="Stamina" type="Control"]
+custom_minimum_size = Vector2(35, 20)
+layout_mode = 3
+anchors_preset = 0
+offset_top = -10.0
+offset_right = 64.0
+offset_bottom = 21.0
+script = ExtResource("1_eqr3m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7psio")
+centered = false
+hframes = 10
+vframes = 11
+frame = 21

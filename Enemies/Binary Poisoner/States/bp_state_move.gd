@@ -2,7 +2,7 @@ extends EnemyState
 class_name BPStateMove
 
 @export var anim_name: String = "walk"
-@export var move_speed: float = 60.0
+@export var move_speed: float = 20.0
 
 # How far the enemy wants to stay from the player (in pixels)
 @export var follow_distance: float = 32.0
@@ -20,7 +20,7 @@ const POISON_ATLAS_COORDS := Vector2i(35, 3)
 const POISON_ALTERNATIVE_ID := 0
 
 # Unstuck / sidestep settings
-@export var stuck_distance_threshold: float = 0.5    # consider "not moved" if below this distance
+@export var stuck_distance_threshold: float = 0.2    # consider "not moved" if below this distance
 @export var stuck_time_before_sidestep: float = 2.0  # how long to be stuck before sidestep (sec)
 @export var sidestep_speed: float = 60.0             # speed while sidestepping
 @export var sidestep_duration: float = 0.8           # how long a sidestep lasts (sec)

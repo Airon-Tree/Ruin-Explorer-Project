@@ -17,6 +17,7 @@ closed_texture = ExtResource("2_fh4v6")
 open_texture = ExtResource("3_li3vo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.2784314, 1, 0.7607843, 1)
 position = Vector2(2.3841858e-07, -1.0000005)
 scale = Vector2(0.3703704, 0.36170214)
 texture = ExtResource("2_fh4v6")

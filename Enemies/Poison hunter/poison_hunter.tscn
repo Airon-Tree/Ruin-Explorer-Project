@@ -1548,7 +1548,7 @@ radius = 12.0415945
 
 [node name="PoisonHunter" type="CharacterBody2D"]
 collision_layer = 256
-collision_mask = 16
+collision_mask = 272
 script = ExtResource("1_eg5pc")
 hp = 15
 metadata/_custom_type_script = "uid://bq5xyg0gf3j2g"
@@ -1561,6 +1561,7 @@ position = Vector2(0, -14)
 shape = SubResource("CircleShape2D_hxkn6")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_hxkn6")]
+collision_mask = 6
 damage = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
