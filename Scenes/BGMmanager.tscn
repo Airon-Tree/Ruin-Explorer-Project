@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://by81ufmg0jymm"]
 
-[ext_resource type="Script" path="res://Scenes/BGMmanager.gd" id="1_1qrgd"]
+[ext_resource type="Script" uid="uid://el6nojb8kbs0" path="res://Scenes/BGMmanager.gd" id="1_1qrgd"]
 [ext_resource type="AudioStream" uid="uid://cb2btase85ybo" path="res://Resource/05. Preparing - Before the Day Start.mp3" id="2_1qrgd"]
 
 [node name="BGMmanager" type="Node"]
