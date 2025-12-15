@@ -20,6 +20,9 @@ var current_save : Dictionary = {
 	
 }
 
+var contract_signed: bool = false
+var contract_signature_paths: Array = []
+
 func save_game() -> void: 
 	update_item_data()
 	update_player_data()
