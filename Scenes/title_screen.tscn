@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bb8nimalk1ko3"]
 
 [ext_resource type="Script" uid="uid://b6u1r6gy1qyo4" path="res://Levels/Scripts/title_screen.gd" id="1_dvdqc"]
-[ext_resource type="Texture2D" uid="uid://j521wu2u10x8" path="res://Resource/titleScreen.png" id="2_dvdqc"]
+[ext_resource type="Texture2D" uid="uid://bnn6ht8hywyl0" path="res://Resource/titilescreen_fixed2.jpg" id="2_p3fck"]
 
 [sub_resource type="GDScript" id="GDScript_5gq71"]
 script/source = "extends Button
@@ -34,7 +34,7 @@ z_index = -1
 offset_left = 1.0
 offset_right = 487.0
 offset_bottom = 277.0
-texture = ExtResource("2_dvdqc")
+texture = ExtResource("2_p3fck")
 expand_mode = 2
 
 [node name="StartButton" type="Button" parent="CanvasLayer"]

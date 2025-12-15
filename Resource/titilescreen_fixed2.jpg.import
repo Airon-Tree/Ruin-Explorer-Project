@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjsx4hd0o1ymo"
-valid=false
+uid="uid://bnn6ht8hywyl0"
+path="res://.godot/imported/titilescreen_fixed2.jpg-be1c57e0c3941a65d77dc22d6ecc9ef6.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Resource/titleScreen_fixed.png"
+source_file="res://Resource/titilescreen_fixed2.jpg"
+dest_files=["res://.godot/imported/titilescreen_fixed2.jpg-be1c57e0c3941a65d77dc22d6ecc9ef6.ctex"]
 
 [params]
 
