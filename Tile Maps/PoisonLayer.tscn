@@ -40,5 +40,6 @@ custom_data_layer_1/type = 3
 sources/0 = SubResource("TileSetAtlasSource_crci0")
 
 [node name="PoisonLayer" type="TileMapLayer" groups=["poison_layer"]]
+z_index = -1
 tile_set = SubResource("TileSet_byhwn")
 script = ExtResource("2_crci0")

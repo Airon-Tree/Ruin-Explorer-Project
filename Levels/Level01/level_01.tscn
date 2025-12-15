@@ -409,10 +409,10 @@ visible = false
 [node name="Label" type="Label" parent="Tutorial"]
 offset_left = -43.0
 offset_top = 271.0
-offset_right = 50.0
+offset_right = 382.0
 offset_bottom = 320.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.39215687)
-text = "Escape here                               Press Shift to run
+text = "Escape here                               Press Shift to run（cost stamina）
 Key needed"
 
 [node name="Label2" type="Label" parent="Tutorial"]

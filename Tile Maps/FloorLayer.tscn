@@ -518,6 +518,7 @@ sources/1 = SubResource("TileSetAtlasSource_d88jw")
 sources/0 = SubResource("TileSetAtlasSource_op6of")
 
 [node name="FloorLayer" type="TileMapLayer"]
+z_index = -1
 use_parent_material = true
 tile_set = SubResource("TileSet_supkn")
 rendering_quadrant_size = 32

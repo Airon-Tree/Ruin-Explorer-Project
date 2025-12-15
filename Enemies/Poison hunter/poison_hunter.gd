@@ -5,7 +5,7 @@ class_name PoisonHunter
 @onready var poison_layer: PoisonLayer = get_tree().get_first_node_in_group("poison_layer")
 
 # How far (in tiles) this enemy can smell poison
-@export var smell_radius_tiles: int = 3
+@export var smell_radius_tiles: int = 4
 
 # Smell ray collision mask:
 # "Walls" is layer 5 => Bit 4 => value 16
