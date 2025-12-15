@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://bvoix3jib32he"]
 
 [ext_resource type="Script" uid="uid://ddklf8ir1d51u" path="res://Items/item_effects/item_effect.gd" id="1_200in"]
-[ext_resource type="Script" path="res://Items/item_effects/item_train_ticket.gd" id="2_dbim7"]
+[ext_resource type="Script" uid="uid://dffin2xrovuwt" path="res://Items/item_effects/item_train_ticket.gd" id="2_dbim7"]
 [ext_resource type="Script" uid="uid://covrvnj3imixu" path="res://Items/scripts/item_data.gd" id="2_wc277"]
 [ext_resource type="Texture2D" uid="uid://cdr1bkg064bt7" path="res://Resource/train/ticket_32_04.png" id="4_dbim7"]
 

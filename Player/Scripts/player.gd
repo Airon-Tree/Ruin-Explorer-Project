@@ -114,6 +114,11 @@ func _exit_poison() -> void:
 		poison_timer.stop()
 
 func _on_poison_tick() -> void:
+	_resolve_poison_layer()
+	if poison_layer == null or not poison_layer.is_inside_tree():
+		if not poison_timer.is_stopped():
+			poison_timer.stop()
+		return
 	var dps := poison_layer.get_dps_at_world_pos(global_position)
 	_take_poison_damage(dps)
 
@@ -188,6 +193,10 @@ func _on_player_death() -> void:
 		return
 	is_dead = true
 	
+	# Stop any ongoing poison ticking when we die
+	if poison_timer and not poison_timer.is_stopped():
+		poison_timer.stop()
+	
 	PlayerHud.set_hp_bar_visible(false)
 	
 	direction = Vector2.ZERO
@@ -213,7 +222,6 @@ func _on_player_death() -> void:
 	else:
 		get_tree().reload_current_scene()
 		
-		
 func reset_after_death() -> void:
 	# Clear death flag
 	is_dead = false
@@ -227,6 +235,10 @@ func reset_after_death() -> void:
 	
 	if state_machine:
 		state_machine.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	if poison_timer and not poison_timer.is_stopped():
+		poison_timer.stop()
+	poison_layer = null
 	
 	# ---- HP reset ----
 	var delta_hp: int = max_hp - hp
